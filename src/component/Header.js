@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import '../../src/app/globals.css';
-import SiteLanguage from './siteLanguage';
+import SiteLanguage from './SiteLanguage';
 const Header = () => {
   const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
