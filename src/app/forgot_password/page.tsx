@@ -133,7 +133,7 @@ const Register = () => {
                </svg>
                <span className="sr-only">Info</span>
                <div className="ms-3 text-sm font-medium">
-               A password reset email has been sent to your email address. Please check your <a href="https://mail.google.com/mail/u/0/#inbox" className="font-semibold underline hover:no-underline">Gmail</a>.
+               A password reset email has been sent to your email address. Please check your <a href="https://mail.google.com/mail/u/0/#inbox" target='blank' className="font-semibold underline hover:no-underline">Gmail</a>.
                
                </div>
                <button onClick={() => {setResetPasswordSent(false)}} type="button" className="ms-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-green-400 dark:hover:bg-gray-700" data-dismiss-target="#alert-3" aria-label="Close">

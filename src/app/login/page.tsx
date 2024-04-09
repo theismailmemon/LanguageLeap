@@ -7,7 +7,7 @@
               import React, { useState, useEffect, useRef } from 'react';
               import { useRouter } from 'next/navigation';
               import { dataBase } from '../../../firebaseConfig';
-              import { signInWithEmailAndPassword } from 'firebase/auth';
+              import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth';
               
               const Register = () => {
                 const router = useRouter();
@@ -37,7 +37,7 @@
                       setLoadingAnimation(false)
                       NotificationManager.success('You have successfully logged in!', 'Success');
                       setLoginInformation(data.user)
-                      console.log(data.user, "authData")
+                      console.log(data.user.accessToken, "authData")
                     })
                     .catch((err) => {
                       if (err.code === 'auth/invalid-credential') {
@@ -49,6 +49,20 @@
                     })
                 }
 
+                const handleWithGoogle = () => {
+                  const auth = getAuth();
+                  signInWithPopup(auth, new GoogleAuthProvider()).then(
+                      (result) => {
+                          const userCred = result.user;
+                          console.log(userCred.email)
+                          router.push('./')
+                          if (userCred) {
+                           
+                              localStorage.setItem('token', userCred.getIdToken())
+                          }
+                      }
+                  );
+              };
 
                 const handleLoginEmailClick = () => {
                   setLoginEmailX(true);
@@ -183,12 +197,9 @@
                             <span className='text-gray-400 font-medium'>Or</span>
                             <span className='bg-gray-300 w-full h-[1px]'></span>
                           </div>
-                          <div className='flex gap-4'>
-                            <button className='hover:bg-gray-100 transition ease-in-out duration-300 flex justify-center gap-[6px] items-center text-center text-[15px] text-blue-800 rounded-[14px] border-2 border-gray-200 w-full h-[51px] font-bold'>
-                              <img src='https://cdn.iconscout.com/icon/free/png-256/free-facebook-72-189788.png' className='w-5' />
-                              FACEBOOK
-                            </button>
-                            <button className='hover:bg-gray-100 transition ease-in-out duration-300 flex justify-center gap-[6px] items-center text-center text-[15px] text-blue-500 rounded-[14px] border-2 border-gray-200 w-full h-[51px] font-bold'>
+                          <div className=''>
+                          
+                            <button onClick={handleWithGoogle} className='hover:bg-gray-100 transition ease-in-out duration-300 flex justify-center gap-[6px] items-center text-center text-[15px] text-blue-500 rounded-[14px] border-2 border-gray-200 w-full h-[51px] font-bold'>
                               <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1024px-Google_%22G%22_logo.svg.png' className='w-5' />
                               GOOGLE
                             </button>

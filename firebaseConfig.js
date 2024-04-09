@@ -8,15 +8,18 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyC6fkhWjnFvdL6sxohse6NmcGjf4RoXj_s",
-  authDomain: "emailpasswordduilngo.firebaseapp.com",
-  projectId: "emailpasswordduilngo",
-  storageBucket: "emailpasswordduilngo.appspot.com",
-  messagingSenderId: "465070409354",
-  appId: "1:465070409354:web:55af02e043d69987dfcf73",
-  measurementId: "G-8QZTJXNK1E"
+  apiKey: "AIzaSyDOZOFtnwQzv2Ceql_AMFq0dD57H0CZKkM",
+  authDomain: "emailpasswordlanguage.firebaseapp.com",
+  projectId: "emailpasswordlanguage",
+  storageBucket: "emailpasswordlanguage.appspot.com",
+  messagingSenderId: "90325406549",
+  appId: "1:90325406549:web:8819ed3cc53e5f6c0495dc",
+  measurementId: "G-DMR7X4R1S8"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const dataBase = getAuth(app);
+
+
+

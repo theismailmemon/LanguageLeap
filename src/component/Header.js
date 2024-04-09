@@ -6,6 +6,7 @@ import SiteLanguage from './SiteLanguage';
 const Header = () => {
   const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [openMenuBarModal, setOpenMenuBarModal] = useState(false);
   const [showLanguage, setShowLanguage] = useState(false);
   const [languageData, setLanguageData] = useState({
     label: "English"
@@ -31,10 +32,17 @@ const Header = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
+  const handleMenuBar = () => {
+    if (openMenuBarModal === true) {
+      setOpenMenuBarModal(false)
+    } else {
+      setOpenMenuBarModal(true)
+    }
+  }
   return (
     <div className={`fixed w-full bg-white z-[100] ${isScrolled ? 'border-b-2 border-gray-200 transition-all duration-100' : ''}`}>
-      <header className="sm:max-w-6xl mx-auto px-5 h-[71px]">
+    
+      <header className="sm:max-w-6xl relative mx-auto px-5 h-[71px]">
         <div className='flex justify-between items-center h-[71px]'>
           <div>
             <a href=''>
@@ -45,7 +53,7 @@ const Header = () => {
             </a>
           </div>
           <div className='block sm:hidden'>
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2 cursor-pointer" width="26" height="26" viewBox="0 0 24 24" stroke-width="2" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <svg onClick={handleMenuBar} xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2 hover:opacity-80 transition ease-in-out duration-300 cursor-pointer" width="26" height="26" viewBox="0 0 24 24" stroke-width="2" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M4 6l16 0" />
               <path d="M4 12l16 0" />
@@ -74,6 +82,18 @@ const Header = () => {
         <div className='flex justify-end mt-1'>
           {showLanguage === true && <SiteLanguage setShowLanguage={setShowLanguage} setLanguageData={setLanguageData} />}
         </div>
+        {openMenuBarModal === true && (
+          <div className='absolute right-6 top-[75px] sm:hidden block'>
+            <div className='bg-white shadow w-56 rounded-xl border-2 border-gray-200'>
+              <div className='border-gray-200 py-[10px] hover:bg-gray-200 cursor-pointer' onClick={() => { router.push('/login') }}>
+                <button className='px-6 text-gray-700 text-[17px] font-semibold'>Login</button>
+              </div>
+              <div className='border-gray-200 py-[10px] hover:bg-gray-200 cursor-pointer' onClick={() => { router.push('/register') }}>
+                <button className='px-6 text-gray-700 text-[17px] font-semibold'>Signup</button>
+              </div>
+            </div>
+          </div>
+        )}
       </header>
 
     </div>

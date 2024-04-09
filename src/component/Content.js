@@ -5,6 +5,7 @@ import Footer from "./Footer";
 
 const Content = () => {
   const router = useRouter();
+  const [showModal, setShowModal] = useState(false);
   const languageButton = [
     {
       language: 'English',
@@ -44,6 +45,16 @@ const Content = () => {
   ];
   return (
     <div className="sm:pt-[76px] pt-[76px]">
+
+      {showModal === true && (
+        <div onClick={() => { setShowModal(false) }} className="fixed inset-0 z-[100] bg-black bg-opacity-50 flex items-center justify-center">
+          <div onClick={(e) => { e.stopPropagation() }}>
+            <iframe className="rounded-2xl sm:w-[560px] w-[360px] h-[240px] sm:h-[315px]" src="https://www.youtube.com/embed/-WMGWaLLgsc?si=Dxd0ku5ugL_dBAty" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+      )}
+
+
       <div className="sm:pt-40 pt-10">
         <div className="sm:max-w-5xl mx-auto sm:px-2 px-6">
           <div className="sm:flex sm:gap-5 sm:justify-between sm:items-center">
@@ -93,7 +104,7 @@ const Content = () => {
               </div>
             </div>
             <div class="relative sm:w-64 sm:mt-0 mt-6 flex sm:justify-start justify-center">
-              <img src="https://talkpal.ai/wp-content/uploads/2024/03/Introducing-TalkPal.jpg" class="w-full transition-transform duration-300 transform-gpu hover:scale-105" />
+              <img onClick={() => { setShowModal(true) }} src="https://talkpal.ai/wp-content/uploads/2024/03/Introducing-TalkPal.jpg" class="w-full transition-transform duration-300 transform-gpu hover:scale-105" />
             </div>
           </div>
           <div className="mt-10">
@@ -180,7 +191,7 @@ const Content = () => {
 
         <div className="bg-gray-100 sm:py-20 py-10 px-4">
           <div className="sm:max-w-5xl mx-auto sm:px-2 px-6">
-         <div>
+            <div>
               <div>
                 <h2 className="text-gray-700 font-bold">PRICING PLANS</h2>
                 <h2 className="text-black sm:text-5xl text-2xl font-bold pt-2">CHOOSE THE RIGHT PLAN FOR YOU</h2>
@@ -251,7 +262,7 @@ const Content = () => {
               </div>
             </div>
 
-               <div>
+            <div>
               <h6 className="mt-5 text-center text-[14px] text-gray-500">*Prices & currencies may vary depending on your location</h6>
               <div className="mt-16">
                 <h2 className="text-black sm:text-5xl text-xl font-bold pt-2 text-center">LEARN ANYWHERE ANYTIME</h2>
@@ -390,7 +401,7 @@ const Content = () => {
                 </div>
               </div>
             </div>
-            
+
             <div>
               <div className="sm:mt-32 mt-10">
                 <h2 className="text-black sm:text-5xl text-2xl font-bold pt-2">FAQ</h2>
