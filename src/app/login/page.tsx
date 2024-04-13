@@ -64,16 +64,23 @@ const Register = () => {
     const auth = getAuth();
     signInWithPopup(auth, new GoogleAuthProvider()).then(
       (result) => {
-        const userCred = result.user;
-        console.log(userCred.email)
-        router.push('/dashboard');
-        if (userCred) {
-
-          localStorage.setItem('token', userCred.getIdToken())
-        }
+        result.user.getIdToken().then(token => {
+          // Access token ko localStorage mein save karna
+          localStorage.setItem('token', token)
+          // Ab yahan par apne aage ke karyavahi karein, jaise redirect ya notification
+          router.push('/dashboard');
+          NotificationManager.success('You have successfully logged in!', 'Success');
+        }).catch(error => {
+          console.error('Error retrieving ID token:', error);
+          NotificationManager.error('Error retrieving ID token', 'Error');
+        });
       }
-    );
+    ).catch(error => {
+      console.error('Error signing in with Google:', error);
+      NotificationManager.error('Error signing in with Google', 'Error');
+    });
   };
+  
 
   const handleLoginEmailClick = () => {
     setLoginEmailX(true);
