@@ -54,6 +54,7 @@ const RecordingComponent = ({ loading }) => {
     }
   };
 
+
   const getPermission = async () => {
     try {
       // Implement the logic to request audio recording permission

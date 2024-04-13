@@ -226,12 +226,31 @@ const ChatComponent = () => {
 
 
       <div className="pt-[78px]">
-        <div className="bg-gray-100 sm:pt-10 pt-5 px-6 mx-auto max-w-5xl h-screen">
-          {messages.map((message, index) => (
-            <MessageRow key={index} message={message} replay={replayMessage} />
-          ))}
-          {loading && <LoadingMessage />}
+      <div className="bg-gray-100 sm:pt-10 pt-5 px-6 mx-auto max-w-5xl h-screen">
+      {messages.map((message, index) => (
+        <div key={index}>
+          <MessageRow message={message} onReplay={replayMessage} />
+
+          {messages.length === 1 &&
+            message.role === 'bot' &&
+            message.options &&
+            message.options.length > 0 && (
+              <div className="flex space-x-4 sm:ml-[3.8rem] ml-[2.8rem] mt-4">
+                {message.options.map((option, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => selectOption(option)}
+                    className="sm:px-4 px-3 sm:py-2 py-[6px] bg-gray-700 text-white rounded-lg hover:opacity-80 focus:outline-none"
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+            )}
         </div>
+      ))}
+      {loading && <MessageRow loading={true} />}
+    </div>
       </div>
 
 

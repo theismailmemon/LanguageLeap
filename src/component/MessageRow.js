@@ -3,8 +3,8 @@
 import React from 'react';
 
 const MessageItem = ({ message, loading, onReplay }) => {
-  const isBotMessage = message.role === 'bot';
-  const isUserMessage = message.role === 'user';
+  const isBotMessage = message && message.role === 'bot';
+  const isUserMessage = message && message.role === 'user';
 
   const handleReplay = () => {
     onReplay(message);
