@@ -32,7 +32,7 @@ const register = () => {
       .then((data) => {
 
         localStorage.setItem('token', data.user.accessToken)
-        router.push('/welcome');
+        router.push('/dashboard');
         NotificationManager.success('Registration successful!.', 'Success');
         setLoadingAnimation(false)
         console.log(data.user.displayName, "authData")
@@ -51,7 +51,7 @@ const register = () => {
       (result) => {
         const userCred = result.user;
         console.log(userCred.email)
-        router.push('./')
+        router.push('/dashboard');
         if (userCred) {
 
           localStorage.setItem('token', userCred.getIdToken())

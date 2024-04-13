@@ -1,7 +1,7 @@
 //
 'use client';
 import { useRouter } from "next/navigation";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MessageRow from '../../component/MessageRow';
 import LoadingMessage from '../../component/LoadingMessage';
 import Recorder from '../../component/Recorder';
@@ -17,7 +17,12 @@ const ChatComponent = () => {
   const [showModal, setShowModal] = useState(false);
   const [user, setUser] = useState({ name: 'Ibrahim', isMuted: true });
   const [selectedLanguage, setSelectedLanguage] = useState('Spanish');
-
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      router.push('/login');
+    }
+  }, [router]);
   // Simulating created lifecycle hook
   useState(() => {
     if (messages.length === 0) {
