@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 
-const RecordingComponent = ({ loading }) => {
+const RecordingComponent = ({ loading, recorder }) => {
   const [isPermissioned, setIsPermissioned] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
   const [timePassed, setTimePassed] = useState(0);
