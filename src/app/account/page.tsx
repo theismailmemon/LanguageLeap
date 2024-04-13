@@ -20,10 +20,10 @@ const page = () => {
                     </svg>
                 </div>
                 <div className='flex justify-center text-center mx-auto'>
-                    <h1 className='text-white sm:text-[28px] text-[24px] font-bold italic text-center'>LanguageLeap</h1>
+                    <a href=""><h1 className='text-white sm:text-[28px] text-[24px] font-bold italic text-center'>LanguageLeap</h1></a>
                 </div>
             </header>
-            <div className='my-10 sm:mx-32 sm:flex gap-10 sm:px-2 px-6'>
+            <div className='my-10 mx-auto max-w-[1600px] sm:flex gap-10 sm:px-2 px-6'>
                 <div>
                     <div className='bg-gray-100 px-8 py-8 sm:w-80 rounded-2xl'>
                         <h1 className='flex gap-1 text-4xl font-semibold'>

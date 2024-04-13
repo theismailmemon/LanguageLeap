@@ -15,7 +15,7 @@ const MessageItem = ({ message, loading, onReplay }) => {
       <div className="flex items-end gap-2 text-base sm:gap-3 sm:max-w-2xl md:max-w-3xl">
         {isBotMessage || loading ? (
           <img
-            className="sm:w-10 w-7 sm:h-10 h-7 rounded-full"
+            className="sm:w-8 w-6 sm:h-8 h-6 rounded-full"
             src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
             alt="Logo"
           />

@@ -14,8 +14,8 @@ const Register = () => {
   const [loadingAnimation, setLoadingAnimation] = useState(false);
   const [loginInformation, setLoginInformation] = useState({});
   const [loginEmailX, setLoginEmailX] = useState(false);
-  const [loginemail, setLoginEmail] = useState('');
-  const [loginpassword, setLoginPassword] = useState('');
+  const [loginemail, setLoginEmail] = useState('theismailmemon@gmail.com');
+  const [loginpassword, setLoginPassword] = useState('123456');
 
   const [passwordError, setPasswordError] = useState(false);
   const [emailError, setEmailError] = useState(false);
@@ -35,20 +35,20 @@ const Register = () => {
       }, 1000); // Delay redirection by 3 seconds
     } 
   }, [router]);
-  const handleSigin = () => {
-
+  const handleSignIn = (event) => {
+    event.preventDefault('enter'); // Prevent default form submission behavior
     if (!validateEmail(loginemail) || loginpassword.length < 6) {
       return; // Prevent sign-in if email or password is invalid
     }
     setLoadingAnimation(true)
     signInWithEmailAndPassword(dataBase, loginemail, loginpassword)
       .then((data) => {
-        localStorage.setItem('token', data.user.accessToken)
+        localStorage.setItem('token', (data.user as any).accessToken);
+
         router.push('/dashboard');
         setLoadingAnimation(false)
         NotificationManager.success('You have successfully logged in!', 'Success');
         setLoginInformation(data.user)
-        console.log(data.user.accessToken, "authData")
       })
       .catch((err) => {
         if (err.code === 'auth/invalid-credential') {
@@ -210,7 +210,8 @@ const Register = () => {
             </div>
             <div className='mt-10'>
               <button
-                onClick={handleSigin}
+               
+                onClick={handleSignIn}
                 disabled={emailError || passwordError}
                 className={`tranision ease-in-out duration-300 bg-gray-700 text-center text-[15px] flex justify-center items-center text-white rounded-[14px] border-sky-600 sm:w-[360px] w-full h-[51px] font-bold ${emailError || passwordError || loadingAnimation ? 'pointer-events-none opacity-80' : 'cursor-pointer hover:opacity-80'}`}
               >

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 
-const RecordingComponent = ({ recorder }) => {
+const RecordingComponent = ({loading, recorder }) => {
   const [isPermissioned, setIsPermissioned] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
   const [timePassed, setTimePassed] = useState(0);
@@ -102,7 +102,7 @@ const RecordingComponent = ({ recorder }) => {
           <div className="flex items-center">
             <button
               type="button"
-              className="bg-gray-700 w-8 h-8 flex items-center justify-center rounded-full hover:opacity-80"
+              className="bg-gray-700 w-8 h-8 flex items-center justify-center rounded-full transition ease-in-out duration-300 hover:opacity-80"
               onClick={stopRecording}
               style={{ display: isRecording ? '' : 'none' }}
             >
@@ -110,7 +110,7 @@ const RecordingComponent = ({ recorder }) => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                class="w-6 h-6 text-white"
+                class="w-[22px] h-[22px] text-white"
               >
                 <path
                   fill-rule="evenodd"
@@ -130,7 +130,7 @@ const RecordingComponent = ({ recorder }) => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                class="w-6 h-6 text-white"
+                class="w-[22px] h-[22px] text-white"
               >
                 <path
                   d="M8.25 4.5a3.75 3.75 0 1 1 7.5 0v8.25a3.75 3.75 0 1 1-7.5 0V4.5Z"

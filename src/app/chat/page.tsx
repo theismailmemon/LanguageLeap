@@ -24,13 +24,22 @@ const ChatComponent = () => {
     }
   }, [router]);
   // Simulating created lifecycle hook
-  useState(() => {
+  // useState(() => {
+  //   if (messages.length === 0) {
+  //     const initialMessage = `Sure, ${user.name}! I can help you with some basic ${selectedLanguage} phrases. How about we start with greeting someone? How do you say "hello" in ${selectedLanguage}?`;
+  //     const options = ['Fun', 'Interesting', 'You Decide'];
+  //     setMessages([{ text: initialMessage, role: 'bot', options }]);
+  //   }
+  // }, [messages, user.name, selectedLanguage]);
+
+  useEffect(() => {
     if (messages.length === 0) {
       const initialMessage = `Sure, ${user.name}! I can help you with some basic ${selectedLanguage} phrases. How about we start with greeting someone? How do you say "hello" in ${selectedLanguage}?`;
       const options = ['Fun', 'Interesting', 'You Decide'];
       setMessages([{ text: initialMessage, role: 'bot', options }]);
     }
-  }, [messages, user.name, selectedLanguage]);
+  }, []); // Remove additional arguments here
+  
 
   const selectOption = (option) => {
     setInputMessage(`Hey Emma! Ask me a ${option} question`);
@@ -234,7 +243,7 @@ const ChatComponent = () => {
       <div className="bg-gray-100 sm:pt-10 pt-5 px-6 mx-auto max-w-5xl h-screen">
       {messages.map((message, index) => (
         <div key={index}>
-          <MessageRow message={message} onReplay={replayMessage} />
+          <MessageRow message={message} loading={false} onReplay={replayMessage} />
 
           {messages.length === 1 &&
             message.role === 'bot' &&
@@ -245,7 +254,7 @@ const ChatComponent = () => {
                   <button
                     key={idx}
                     onClick={() => selectOption(option)}
-                    className="sm:px-4 px-3 sm:py-2 py-[6px] bg-gray-700 text-white rounded-lg hover:opacity-80 focus:outline-none"
+                    className="sm:px-4 px-3 sm:py-2 py-[6px] bg-gray-700 transition ease-in-out duration-300 text-white rounded-lg hover:opacity-80 focus:outline-none"
                   >
                     {option}
                   </button>
@@ -254,7 +263,7 @@ const ChatComponent = () => {
             )}
         </div>
       ))}
-      {loading && <MessageRow loading={true} />}
+      {loading && <MessageRow loading={true} message={''} onReplay={''} />}
     </div>
       </div>
 
@@ -310,7 +319,7 @@ const ChatComponent = () => {
             />
             <span className="absolute right-4">
               {inputMessage.trim() === '' ? (
-                <Recorder recorder={sendAudioToBackend} />
+                <Recorder recorder={sendAudioToBackend} loading={false} />
               ) : (
                 <button onClick={sendMessage}>
                   <svg

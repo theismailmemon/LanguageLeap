@@ -31,7 +31,8 @@ const register = () => {
     createUserWithEmailAndPassword(dataBase, registerEmail, registerPassword)
       .then((data) => {
 
-        localStorage.setItem('token', data.user.accessToken)
+        localStorage.setItem('token', (data.user as any).accessToken);
+
         router.push('/dashboard');
         NotificationManager.success('Registration successful!.', 'Success');
         setLoadingAnimation(false)
