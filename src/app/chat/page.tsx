@@ -2,7 +2,7 @@
 'use client';
 import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from 'react';
-import MessageRow from '../../component/MessageRow';
+import MessageRow from '../../component';
 import LoadingMessage from '../../component/LoadingMessage';
 import Recorder from '../../component/Recorder';
 import axios from 'axios';

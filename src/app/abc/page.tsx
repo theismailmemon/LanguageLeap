@@ -135,7 +135,7 @@ const ChatApp = () => {
       <div className="flex-1 h-full overflow-y-auto p-4 flex flex-col gap-5">
         {/* Display chat messages */}
         {messages.map((message, index) => (
-          <MessageRow key={index} message={message} onReplay={replayMessage} />
+          <MessageRow message={message} onReplay={replayMessage} />
         ))}
         {/* Display loading message when waiting for response */}
         {loading && <LoadingMessage />}

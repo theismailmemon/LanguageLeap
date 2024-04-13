@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const MessageItem = ({ message, loading, onReplay }) => {
+const MessageItem = ({ message, onReplay }) => {
   const isBotMessage = message && message.role === 'bot';
   const isUserMessage = message && message.role === 'user';
 
