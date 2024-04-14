@@ -875,14 +875,14 @@ const Page = () => {
       )}
 
       {continuePage === 7 && (
-        <div className="sm:h-[calc(100vh-14vh)] h-[calc(100vh-1vh)]">
+        <div className="h-[calc(100vh-14vh)] ">
           <div className="flex justify-center items-center h-full">
             <div>
 
               <div className="">
                 <div>
                   <div className="mb-4">
-                    <div className="text-[#22AE73] text-3xl flex justify-center font-semibold transition ease-in-out duration-300">
+                    <div className="text-[#22AE73] sm:text-3xl text-xl flex justify-center font-semibold transition ease-in-out duration-300">
                       {progressWidth >= 100 ? 'Personalization completed!' : 'Analyzing your answers . . .'}
                     </div>
 
