@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import React, { useState, useEffect, useRef } from "react";
 const Page = () => {
   const router = useRouter();
-  const [continuePage, setContinuePage] = useState(1);
+  const [continuePage, setContinuePage] = useState(6);
   const [isScrolled, setIsScrolled] = useState(false);
   const progressPercentage = (continuePage - 1) * (100 / 6);
   const [loadingContinue, setLoadingContinue] = useState(false);
@@ -882,13 +882,127 @@ const Page = () => {
               <div className="">
                 <div>
                   <div className="mb-4">
-                    {progressWidth >= 100 && (
-                      <div className="text-green-600 text-2xl text-center font-semibold">Well Done!</div>
-                    )}
-                    <div className="bg-gray-300 w-80 h-16 relative rounded overflow-hidden mt-8">
-                      <div className="bg-green-500 text-white text-lg flex items-center justify-center h-full" style={{ width: `${progressWidth}%` }}>
-                        <span className=" absolute left-[48%]">{progressWidth}</span>
+                    <div className="text-[#22AE73] text-3xl flex justify-center font-semibold transition ease-in-out duration-300">
+                      {progressWidth >= 100 ? 'Personalization completed!' : 'Analyzing your answers . . .'}
+                    </div>
+
+                    <div className="flex justify-center mt-8">
+                      {progressWidth >= 100 ? (<div>
+                        <div className="animation-ctn">
+                          <style jsx>{`
+        .animation-ctn {
+          text-align: center;
+        }
+
+        @-webkit-keyframes checkmark {
+          0% {
+            stroke-dashoffset: 100px;
+          }
+
+          100% {
+            stroke-dashoffset: 0px;
+          }
+        }
+
+        @-ms-keyframes checkmark {
+          0% {
+            stroke-dashoffset: 100px;
+          }
+
+          100% {
+            stroke-dashoffset: 0px;
+          }
+        }
+
+        @keyframes checkmark {
+          0% {
+            stroke-dashoffset: 100px;
+          }
+
+          100% {
+            stroke-dashoffset: 0px;
+          }
+        }
+
+        @-webkit-keyframes checkmark-circle {
+          0% {
+            stroke-dashoffset: 480px;
+          }
+
+          100% {
+            stroke-dashoffset: 960px;
+          }
+        }
+
+        @-ms-keyframes checkmark-circle {
+          0% {
+            stroke-dashoffset: 480px;
+          }
+
+          100% {
+            stroke-dashoffset: 960px;
+          }
+        }
+
+        @keyframes checkmark-circle {
+          0% {
+            stroke-dashoffset: 480px;
+          }
+
+          100% {
+            stroke-dashoffset: 960px;
+          }
+        }
+
+        @keyframes colored-circle {
+          0% {
+            opacity: 0;
+          }
+
+          100% {
+            opacity: 100;
+          }
+        }
+
+        .inlinesvg .svg svg {
+          display: inline;
+        }
+
+        .icon--order-success svg polyline {
+          -webkit-animation: checkmark 0.25s ease-in-out 0.7s backwards;
+          animation: checkmark 0.25s ease-in-out 0.7s backwards;
+        }
+
+        .icon--order-success svg circle {
+          -webkit-animation: checkmark-circle 0.6s ease-in-out backwards;
+          animation: checkmark-circle 0.6s ease-in-out backwards;
+        }
+
+        .icon--order-success svg circle#colored {
+          -webkit-animation: colored-circle 0.6s ease-in-out 0.7s backwards;
+          animation: colored-circle 0.6s ease-in-out 0.7s backwards;
+        }
+                          `}</style>
+                          <div className="animation-ctn">
+                            <div className="icon icon--order-success svg">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="154px" height="154px">
+                                <g fill="none" stroke="#22AE73" strokeWidth="2">
+                                  <circle cx="77" cy="77" r="72" style={{ strokeDasharray: '480px, 480px', strokeDashoffset: '960px' }}></circle>
+                                  <circle id="colored" fill="#22AE73" cx="77" cy="77" r="72" style={{ strokeDasharray: '480px, 480px', strokeDashoffset: '960px' }}></circle>
+                                  <polyline className="st0" stroke="#fff" strokeWidth="10" points="43.5,77.8 63.7,97.9 112.2,49.4 " style={{ strokeDasharray: '100px, 100px', strokeDashoffset: '200px' }} />
+                                </g>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>) : (<div className="w-52 h-52 relative rounded-full overflow-hidden transition ease-in-out duration-300 border border-gray-300">
+                        <div className="bg-[#22AE73] text-white text-4xl flex items-center justify-center h-full" style={{ width: `${progressWidth}%` }}>
+                          <span className="absolute left-[37%]">{progressWidth}</span>
+                        </div>
                       </div>
+                      )}
+
                     </div>
                   </div>
 
@@ -979,6 +1093,7 @@ const Page = () => {
             </button>
           </div>
         </div>
+
       </div>
 
       {/*  */}
