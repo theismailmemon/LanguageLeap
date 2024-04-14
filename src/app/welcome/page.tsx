@@ -528,7 +528,7 @@ const Page = () => {
               <img
                 src="https://seeklogo.com/images/D/duolingo-logo-23407F109C-seeklogo.com.png"
                 alt=""
-                className="sm:h-36 sm:w-36 h-28 w-28"
+                className="sm:h-36 sm:w-36 h-24 w-24"
               />
               <div className="border-2 flex items-center justify-center rounded-[14px] sm:px-5 px-4 sm:py-[12px] sm:text-lg py-[12px] text-[17px] font-medium text-gray-700 mb-5 border-gray-200 sm:w-auto w-52">
                 {continuePage === 1 && (
