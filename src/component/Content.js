@@ -47,7 +47,7 @@ const Content = () => {
     <div className="sm:pt-[76px] pt-[76px]">
 
       {showModal === true && (
-        <div onClick={() => { setShowModal(false) }} className="sm:px6 px-3 fixed inset-0 z-[100] bg-black bg-opacity-50 flex items-center justify-center">
+        <div onClick={() => { setShowModal(false) }} className="sm:px-6 px-4 fixed inset-0 z-[100] bg-black bg-opacity-50 flex items-center justify-center">
           <div onClick={(e) => { e.stopPropagation() }}>
             <iframe className="rounded-2xl sm:w-[560px] w-[360px] h-[240px] sm:h-[315px]" src="https://www.youtube.com/embed/-WMGWaLLgsc?si=Dxd0ku5ugL_dBAty" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
@@ -56,14 +56,14 @@ const Content = () => {
 
 
       <div className="sm:pt-40 pt-10">
-        <div className="sm:max-w-5xl mx-auto sm:px-3 px-3">
+        <div className="sm:max-w-5xl mx-auto sm:px-6 px-4">
           <div className="sm:flex sm:gap-5 sm:justify-between sm:items-center">
             <div className="sm:w-[63%]">
               <h1 className="sm:text-[65px] text-3xl text-black font-bold sm:leading-[68px]">The Most Efficient Way to Learn a Language</h1>
               <p className="pt-6 sm:text-[21px] text-gray-600">Talkpal is a GPT-powered AI language tutor. Chat about unlimited amount of interesting topics either by writing or speaking while receiving messages with realistic voice.</p>
               <div className="mt-7">
                 <h4 className="text-black text-2xl font-medium">You will practice:</h4>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-3 mt-4 px-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-3 mt-4">
                   <button className="flex items-center gap-2">
                     <span className="bg-gray-700 rounded-full h-[18px] w-[18px] flex justify-center items-center">
                       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="14" height="14" viewBox="0 0 24 24" stroke-width="4" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -123,7 +123,7 @@ const Content = () => {
                 </div>
               </div>
 
-              <div className="mt-12 flex sm:justify-start justify-center">
+              <div className="mt-12 flex ">
                 <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-6 gap-x-6 gap-y-6 sm:gap-x-5 sm:gap-y-8">
                   {languageButton.map((button, index) => (
                     <button key={index} className="flex gap-5 w-full px-3 items-center">
@@ -139,8 +139,8 @@ const Content = () => {
           </div>
         </div>
 
-        <div className="bg-gray-100 sm:mt-24 mt-16 sm:py-20 py-10 px-4">
-          <div className="sm:max-w-5xl mx-auto sm:px-3 px-3">
+        <div className="bg-gray-100 sm:mt-24 mt-16 sm:py-20 py-10 sm:px-6 px-4">
+          <div className="sm:max-w-5xl mx-auto">
             <h2 className="text-black sm:text-5xl text-2xl text-center font-bold">THE TALKPAL DIFFERENCE</h2>
             <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 sm:gap-8 sm:mt-20 mt-10">
               <div className="bg-white rounded-md cursor-pointer px-6 py-6">
@@ -163,7 +163,7 @@ const Content = () => {
         </div>
 
         <div className="bg-black sm:py-20 py-10 px-4">
-          <div className="sm:max-w-5xl mx-auto sm:px-3 px-3">
+          <div className="sm:max-w-5xl mx-auto">
             <h2 className="text-white sm:text-5xl text-2xl text-center font-bold">INTRODUCING TALKPAL PREMIUM</h2>
             <h2 className="text-white sm:text-base text-base text-center pt-4 font-bold">AVAILABLE IN 57+ LANGUAGES</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 sm:gap-8 mt-10">
@@ -190,7 +190,7 @@ const Content = () => {
         </div>
 
         <div className="bg-gray-100 sm:py-20 py-10 px-4">
-          <div className="sm:max-w-5xl mx-auto sm:px-3 px-3">
+          <div className="sm:max-w-5xl mx-auto">
             <div>
               <div>
                 <h2 className="text-gray-700 font-bold">PRICING PLANS</h2>

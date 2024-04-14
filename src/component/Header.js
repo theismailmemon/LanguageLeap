@@ -42,7 +42,7 @@ const Header = () => {
   return (
     <div className={`fixed w-full bg-white z-[100] ${isScrolled ? 'border-b-2 border-gray-200 transition-all duration-100' : ''}`}>
     
-      <header className="sm:max-w-6xl relative mx-auto px-5 h-[71px]">
+      <header className="sm:max-w-5xl relative mx-auto px-5 h-[71px]">
         <div className='flex justify-between items-center h-[71px]'>
           <div>
             <a href=''>

@@ -64,7 +64,7 @@ const Page = () => {
 
   return (
     <div>
-      <header className='bg-gray-800 flex items-center h-[80px] w-full px-6'>
+      <header className='bg-gray-800 flex items-center h-[80px] w-full sm:px-6 px-4'>
         <div className='flex justify-center text-center mx-auto'>
           <a href=""><h1 className='text-white sm:text-[28px] text-[24px] font-bold italic text-center'>LanguageLeap</h1></a>
         </div>
@@ -74,7 +74,7 @@ const Page = () => {
           </svg>
         </div>
       </header>
-      <div className='my-8 sm:max-w-5xl sm:px-3 px-3 mx-auto'>
+      <div className='my-8 sm:max-w-5xl sm:px-6 px-4 mx-auto'>
         <h4 className='text-center'>Choose your target language</h4>
         <div className='flex justify-center mt-2'>
           <div ref={dropdownRef} className={`mt-2 relative rounded-md shadow-lg sm:w-96 w-full ring-1 ring-black ring-opacity-5 space-y-1`}>

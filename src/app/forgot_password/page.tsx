@@ -84,7 +84,7 @@ const Register = () => {
       <NotificationContainer />
       <div>
         <ForgotPasswordHeader />
-        <div className='sm:mx-6 mx-3 my-6'>
+        <div className='sm:mx-6 mx-4 my-6'>
           <div className='sm:mt-44 mt-24 sm:max-w-[355px] mx-auto'>
             <div className=''>
               <h2 className='text-2xl font-bold text-gray-700 text-center'>Forgot password</h2>

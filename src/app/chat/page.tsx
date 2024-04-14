@@ -155,7 +155,7 @@ const ChatComponent = () => {
   return (
     <div>
 
-      <header className="bg-gray-800 flex items-center justify-between h-[80px] w-full sm:px-6 px-3 fixed">
+      <header className="bg-gray-800 flex items-center justify-between h-[80px] w-full sm:px-6 px-4 fixed">
         <div className="flex items-center gap-3">
           <div>
             <svg
@@ -212,7 +212,7 @@ const ChatComponent = () => {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="bg-white sm:max-w-sm sm:mx-6 mx-3 p-6 rounded-lg"
+            className="bg-white sm:max-w-sm sm:mx-6 mx-4 p-6 rounded-lg"
           >
             <p className="text-center text-xl font-semibold">
               Are you sure you want to leave the chat?
@@ -240,7 +240,7 @@ const ChatComponent = () => {
 
 
       <div className="pt-[78px]">
-      <div className="bg-gray-100 sm:pt-10 pt-5 sm:px-6 px-3 mx-auto max-w-5xl h-screen">
+      <div className="bg-gray-100 sm:pt-10 pt-5 sm:px-6 px-4 mx-auto max-w-5xl h-screen">
       {messages.map((message, index) => (
         <div key={index}>
           <MessageRow message={message} loading={false} onReplay={replayMessage} />
@@ -268,7 +268,7 @@ const ChatComponent = () => {
       </div>
 
 
-      <div className="fixed w-full bottom-0 bg-white py-3 sm:px-6 px-3 border-t">
+      <div className="fixed w-full bottom-0 bg-white py-3 sm:px-6 px-4 border-t">
         <div className="mx-auto max-w-5xl flex gap-4">
           <div className="relative w-full flex items-center gap-3">
             <button

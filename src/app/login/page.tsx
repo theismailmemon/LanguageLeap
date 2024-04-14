@@ -163,7 +163,7 @@ const Register = () => {
     </div>
    
     ) : (
-      <div className='sm:mx-6 mx-3 my-6'>
+      <div className='sm:mx-6 mx-4 my-6'>
    
       <NotificationContainer />
       <div>
