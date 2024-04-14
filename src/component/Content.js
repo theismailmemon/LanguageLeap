@@ -103,7 +103,7 @@ const Content = () => {
                 </div>
               </div>
             </div>
-            <div class="relative sm:w-64 sm:mt-0 mt-6 flex sm:justify-start justify-center">
+            <div class="relative sm:w-64 sm:mt-0 mt-8 flex sm:justify-start justify-center">
               <img onClick={() => { setShowModal(true) }} src="https://talkpal.ai/wp-content/uploads/2024/03/Introducing-TalkPal.jpg" class="w-full transition-transform duration-300 transform-gpu hover:scale-105" />
             </div>
           </div>
@@ -123,10 +123,10 @@ const Content = () => {
                 </div>
               </div>
 
-              <div className="mt-12 flex ">
+              <div className="mt-12 flex">
                 <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-6 gap-x-6 gap-y-6 sm:gap-x-5 sm:gap-y-8">
                   {languageButton.map((button, index) => (
-                    <button key={index} className="flex gap-5 w-full px-3 items-center">
+                    <button key={index} className="flex gap-5 w-full items-center">
                       <span>
                         <img src={button.imageUrl} alt={button.altText} className="w-8 h-8" />
                       </span>
