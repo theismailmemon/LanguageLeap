@@ -15,10 +15,16 @@ const Page = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isDropDown, setIsDropDown] = useState(true);
   const dropdownRef = useRef(null);
-  const [options, setOptions] = useState('');
   const [progressWidth, setProgressWidth] = useState(0);
 
 
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      router.push('/login');
+    }
+  }, [router]);
   const languages = [
     {
       id: "1",
@@ -323,12 +329,13 @@ const Page = () => {
     },
 
   ];
+  const selectedLanguageMainName = languages.find(language => language.id === selectedLanguage)?.name;
 
   const network = [
     {
       id: 1,
       src: "https://d35aaqx5ub95lt.cloudfront.net/images/funboarding/f45d9d583cea02515c7140fd7e1a64cd.svg",
-      name: "I’m new to Spanish",
+      name: `I’m new to ${selectedLanguageMainName}`,
     },
     {
       id: 2,
@@ -479,6 +486,7 @@ const Page = () => {
     };
   }, []);
 
+  const selectedLanguageTooltipName = languages.find(language => language.id === selectedLanguage)?.name;
   return (
     <>
 
@@ -542,13 +550,15 @@ const Page = () => {
                   </h1>
                 )}
                 {continuePage === 3 && (
-                  <h1 className="relative w-[max-content] font-mono before:absolute before:inset-0 before:animate-typewriter before:bg-white after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-black">
-                    How much Japanese do you know?
+                  <h1 className="relative flex gap-2 w-[max-content] font-mono before:absolute before:inset-0 before:animate-typewriter before:bg-white after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-black">
+                    <span>How much</span>
+                    <span className="font-semibold text-black">{selectedLanguageTooltipName}</span>
+                    <span>do you know?</span>
                   </h1>
                 )}
                 {continuePage === 4 && (
-                  <h1 className="relative w-[max-content] font-mono before:absolute before:inset-0 before:animate-typewriter before:bg-white after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-black">
-                    Why are you learning Japanese?
+                  <h1 className="relative flex gap-2 w-[max-content] font-mono before:absolute before:inset-0 before:animate-typewriter before:bg-white after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-black">
+                   <span> Why are you learning</span>  <span className="font-semibold text-black">{selectedLanguageTooltipName}</span>?
                   </h1>
                 )}
                 {continuePage === 5 && (
@@ -998,8 +1008,8 @@ const Page = () => {
 
                       </div>) : (
                         <div className="bg-white text-gray-700 border-2 border-[#22AE73] w-52 h-52 relative rounded-full overflow-hidden mt-8 transition ease-in-out duration-300">
-                          <div className={`${progressWidth > 50 ? 'text-white' : 'text-black'} bg-[#22AE73]   flex items-center justify-center h-full`} style={{ width: `${progressWidth}%` }}>
-                            <span className=" absolute left-[43%]">{progressWidth}</span>
+                          <div className={`${progressWidth > 50 ? 'text-white' : 'text-black'} bg-[#22AE73] flex items-center justify-center h-full`} style={{ width: `${progressWidth}%` }}>
+                            <span className=" absolute left-[43%] text-2xl">{progressWidth}</span>
                           </div>
                         </div>
                       )}
