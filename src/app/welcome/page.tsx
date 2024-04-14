@@ -752,7 +752,7 @@ const Page = () => {
       {continuePage === 5 && (
         <div className="">
           <div className="my-6 sm:mt-[282px] mt-[218px] mx-auto sm:max-w-6xl sm:px-4 px-4">
-            <div className="sm:flex sm:justify-center sm:mt-20 mt-[360px]">
+            <div className="sm:flex sm:justify-center sm:mt-20 my-8">
               <div>
                 <div className="bg-white shadow border-2 border-gray-200 sm:w-[490px] rounded-lg pl-6 pr-2 pt-2 pb-7">
                   <div className="flex justify-end">
