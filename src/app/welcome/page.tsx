@@ -996,9 +996,10 @@ const Page = () => {
                           </div>
                         </div>
 
-                      </div>) : (<div className="w-52 h-52 relative rounded-full overflow-hidden transition ease-in-out duration-300 border border-gray-300">
-                        <div className="bg-[#22AE73] text-white text-4xl flex items-center justify-center h-full" style={{ width: `${progressWidth}%` }}>
-                          <span className="absolute left-[37%]">{progressWidth}</span>
+                      </div>) : (
+                      <div className="bg-white text-gray-700 border-2 border-[#22AE73] w-52 h-52 relative rounded-full overflow-hidden mt-8 transition ease-in-out duration-300">
+                        <div className={`${progressWidth > 50 ? 'text-white' : 'text-black'} bg-[#22AE73]   flex items-center justify-center h-full` } style={{ width: `${progressWidth}%` }}>
+                          <span className=" absolute left-[43%]">{progressWidth}</span>
                         </div>
                       </div>
                       )}
