@@ -524,7 +524,7 @@ const Page = () => {
               </div>
             </div>
             {/* 28 */}
-            <div className="flex gap-6 items-center sm:mt-12 mt-5">
+            <div className="flex sm:gap-6 gap-5 items-center sm:mt-12 mt-5">
               <img
                 src="https://seeklogo.com/images/D/duolingo-logo-23407F109C-seeklogo.com.png"
                 alt=""
