@@ -14,8 +14,8 @@ const Register = () => {
   const [loadingAnimation, setLoadingAnimation] = useState(false);
   const [loginInformation, setLoginInformation] = useState({});
   const [loginEmailX, setLoginEmailX] = useState(false);
-  const [loginemail, setLoginEmail] = useState('theismailmemon@gmail.com');
-  const [loginpassword, setLoginPassword] = useState('123456');
+  const [loginemail, setLoginEmail] = useState('');
+  const [loginpassword, setLoginPassword] = useState('');
 
   const [passwordError, setPasswordError] = useState(false);
   const [emailError, setEmailError] = useState(false);
