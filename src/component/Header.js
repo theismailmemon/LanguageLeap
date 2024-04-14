@@ -83,8 +83,8 @@ const Header = () => {
           {showLanguage === true && <SiteLanguage setShowLanguage={setShowLanguage} setLanguageData={setLanguageData} />}
         </div>
         {openMenuBarModal === true && (
-          <div className='absolute right-6 top-[75px] sm:hidden block'>
-            <div className='bg-white shadow w-56 rounded-xl border-2 border-gray-200'>
+          <div className='absolute right-3 top-[60px] sm:hidden block'>
+            <div className='bg-white shadow w-56 rounded-xl border border-gray-200'>
               <div className='border-gray-200 py-[10px] hover:bg-gray-200 cursor-pointer' onClick={() => { router.push('/login') }}>
                 <button className='px-6 text-gray-700 text-[17px] font-semibold'>Login</button>
               </div>
