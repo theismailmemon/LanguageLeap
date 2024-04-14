@@ -875,7 +875,7 @@ const Page = () => {
       )}
 
       {continuePage === 7 && (
-        <div className="h-screen">
+        <div className="sm:h-[calc(100vh-14vh)] h-[calc(100vh-1vh)]">
           <div className="flex justify-center items-center h-full">
             <div>
 
@@ -997,11 +997,11 @@ const Page = () => {
                         </div>
 
                       </div>) : (
-                      <div className="bg-white text-gray-700 border-2 border-[#22AE73] w-52 h-52 relative rounded-full overflow-hidden mt-8 transition ease-in-out duration-300">
-                        <div className={`${progressWidth > 50 ? 'text-white' : 'text-black'} bg-[#22AE73]   flex items-center justify-center h-full` } style={{ width: `${progressWidth}%` }}>
-                          <span className=" absolute left-[43%]">{progressWidth}</span>
+                        <div className="bg-white text-gray-700 border-2 border-[#22AE73] w-52 h-52 relative rounded-full overflow-hidden mt-8 transition ease-in-out duration-300">
+                          <div className={`${progressWidth > 50 ? 'text-white' : 'text-black'} bg-[#22AE73]   flex items-center justify-center h-full`} style={{ width: `${progressWidth}%` }}>
+                            <span className=" absolute left-[43%]">{progressWidth}</span>
+                          </div>
                         </div>
-                      </div>
                       )}
 
                     </div>
