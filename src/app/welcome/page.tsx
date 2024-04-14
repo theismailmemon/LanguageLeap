@@ -530,7 +530,7 @@ const Page = () => {
                 alt=""
                 className="sm:h-36 sm:w-36 h-24 w-24"
               />
-              <div className="border-2 flex items-center justify-center rounded-[14px] sm:px-5 px-4 sm:py-[12px] sm:text-lg py-[12px] text-[17px] font-medium text-gray-700 mb-5 border-gray-200 sm:w-auto w-[calc(100vw-37.7vw)]">
+              <div className="border-2 flex items-center justify-center rounded-[14px] sm:px-5 px-4 sm:py-[12px] sm:text-lg py-[12px] text-[17px] font-medium text-gray-700 mb-5 border-gray-200 sm:w-auto w-[calc(100vw-39vw)]">
                 {continuePage === 1 && (
                   <h1 className="relative w-[max-content] font-mono before:absolute before:inset-0 before:animate-typewriter before:bg-white after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-black">
                     Which language do you want to learn?
