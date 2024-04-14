@@ -489,7 +489,7 @@ const Page = () => {
             : ""
             }`}
         >
-          <div className="sm:mx-auto sm:max-w-6xl sm:px-4 px-4">
+          <div className="sm:mx-auto sm:max-w-6xl sm:px-6 px-4">
             <div className="flex justify-start items-center gap-4">
               <div className="">
                 <svg
@@ -569,7 +569,7 @@ const Page = () => {
 
       {continuePage === 1 && (
         <div className="">
-          <div className="my-6 sm:mt-[282px] mt-[218px] mx-auto sm:max-w-6xl sm:px-4 px-4">
+          <div className="my-6 sm:mt-[282px] mt-[218px] mx-auto sm:max-w-6xl sm:px-6 px-4">
             <div className="sm:block hidden">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-28 ">
                 {languages.map((language, index) => (
@@ -689,7 +689,7 @@ const Page = () => {
 
       {continuePage === 3 && (
         <div className="">
-          <div className="my-6 sm:mt-[282px] mt-[218px] mx-auto sm:max-w-6xl sm:px-4 px-4">
+          <div className="my-6 sm:mt-[282px] mt-[218px] mx-auto sm:max-w-6xl sm:px-6 px-4">
             <div className="sm:flex sm:justify-center sm:mt-20 my-8">
               <div className="grid grid-cols-1 gap-4">
                 {network.map((network, index) => (
@@ -720,7 +720,7 @@ const Page = () => {
 
       {continuePage === 4 && (
         <div className="">
-          <div className="my-6 sm:mt-[282px] mt-[218px] mx-auto sm:max-w-6xl sm:px-4 px-4">
+          <div className="my-6 sm:mt-[282px] mt-[218px] mx-auto sm:max-w-6xl sm:px-6 px-4">
             <div className="sm:flex sm:justify-center sm:mt-20 my-8">
               <div className="grid sm:grid-cols-2 grid-cols-1 gap-4 sm:max-w-[780px] w-full">
                 {hear.map((hear, index) => (
@@ -751,7 +751,7 @@ const Page = () => {
 
       {continuePage === 5 && (
         <div className="">
-          <div className="my-6 sm:mt-[282px] mt-[218px] mx-auto sm:max-w-6xl sm:px-4 px-4">
+          <div className="my-6 sm:mt-[282px] mt-[218px] mx-auto sm:max-w-6xl sm:px-6 px-4">
             <div className="sm:flex sm:justify-center sm:mt-20 my-8">
               <div>
                 <div className="bg-white shadow border-2 border-gray-200 sm:w-[490px] rounded-lg pl-6 pr-2 pt-2 pb-7">
@@ -838,7 +838,7 @@ const Page = () => {
 
       {continuePage === 6 && (
         <div className="">
-          <div className="my-6 sm:mt-[282px] mt-[218px] mx-auto sm:max-w-6xl sm:px-4 px-4">
+          <div className="my-6 sm:mt-[282px] mt-[218px] mx-auto sm:max-w-6xl sm:px-6 px-4">
             <div className="sm:flex sm:justify-center sm:mt-20 mt-12">
               <div className="grid grid-cols-1 gap-4">
                 {dailySpentTime.map((dailySpentTime, index) => (
@@ -902,7 +902,7 @@ const Page = () => {
 
       <div className="sm:mt-32 mt-28">
         <div className="border-t-2 bg-white fixed bottom-0 w-full border-gray-200">
-          <div className="sm:py-7 py-4 sm:px-4 px-4 flex justify-end sm:max-w-6xl mx-auto">
+          <div className="sm:py-7 py-4 sm:px-6 px-4 flex justify-end sm:max-w-6xl mx-auto">
             <button
               className={`${loadingContinue === true
                 ? "bg-gray-700 tranistion ease-in-out duration-300 borderGreen text-white cursor-not-allowed"
