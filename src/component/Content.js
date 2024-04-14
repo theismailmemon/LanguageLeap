@@ -267,7 +267,7 @@ const Content = () => {
               <div className="mt-16">
                 <h2 className="text-black sm:text-5xl text-xl font-bold pt-2 text-center">LEARN ANYWHERE ANYTIME</h2>
                 <h2 className="text-gray-700 font-bold pt-4 text-center">DOWNLOAD TALKPAL APP</h2>
-                <div className="mt-8 flex items-center justify-center sm:gap-10 gap-5">
+                <div className="mt-8 flex items-center justify-center sm:gap-10 gap-2">
                   <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&releaseDate=1701561600" className="sm:w-40 w-36 h-16 cursor-pointer" />
                   <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" className="sm:w-40 w-36 h-16 cursor-pointer" />
                 </div>
