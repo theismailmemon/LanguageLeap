@@ -251,10 +251,10 @@ const Register = () => {
                 This site is protected by reCAPTCHA Enterprise and the Google <span className='font-semibold'>Privacy Policy</span> and <span className='font-semibold'>Terms of Service</span> apply.
               </p>
             </div>
-            <div className='mt-5 text-[15px] sm:hidden block'>
+            <div className='mt-5 text-[13px] sm:hidden block'>
               <h2 className='flex gap-2 justify-center font-bold'>
                 <span className='text-gray-700'>Don't have an account?</span>
-                <span className='text-gray-700 hover:opacity-80 transition ease-in-out duration-150' onClick={handleSignup}>SIGN UP</span>
+                <span className='text-gray-700 hover:opacity-80 transition ease-in-out duration-150' onClick={handleSignup}>Sign Up</span>
               </h2>
             </div>
           </div>
