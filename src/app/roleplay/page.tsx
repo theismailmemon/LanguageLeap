@@ -106,7 +106,7 @@ function Roleplays() {
                                 </svg>
                             </div>
                         </header>
-                        <div className='sm:max-w-[1600px] sm:mx-auto sm:px-6 px-3 sm:my-16 my-8'>
+                        <div className='sm:max-w-[1600px] sm:mx-auto sm:px-6 px-4 sm:my-16 my-8'>
                             <div className='mx-auto sm:max-w-5xl text-center sm:mt-14 mt-8 sm:text-base text-sm'>
                                 <h2 className='sm:text-5xl text-3xl font-bold'>ROLEPLAYS</h2>
                                 <div className='w-full flex justify-center items-center bg-gray-100 rounded-2xl sm:px-30 px-6 sm:py-6 py-3 sm:mt-14 mt-8 sm:text-base text-sm text-black'>

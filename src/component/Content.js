@@ -47,13 +47,14 @@ const Content = () => {
     <div className="sm:pt-[76px] pt-[76px]">
 
       {showModal === true && (
-        <div onClick={() => { setShowModal(false) }} className="sm:px-6 px-4 fixed inset-0 z-[100] bg-black bg-opacity-50 flex items-center justify-center">
-          <div onClick={(e) => { e.stopPropagation() }}>
-            <iframe className="rounded-2xl sm:w-[560px] w-[360px] h-[240px] sm:h-[315px]" src="https://www.youtube.com/embed/-WMGWaLLgsc?si=Dxd0ku5ugL_dBAty" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div className="sm:px-6 px-4">
+          <div onClick={() => { setShowModal(false) }} className="fixed inset-0 z-[100] bg-black bg-opacity-50 flex items-center justify-center">
+            <div onClick={(e) => { e.stopPropagation() }}>
+              <iframe className="rounded-2xl sm:w-[560px] w-[350px] h-[240px] sm:h-[315px]" src="https://www.youtube.com/embed/-WMGWaLLgsc?si=Dxd0ku5ugL_dBAty" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
       )}
-
 
       <div className="sm:pt-40 pt-10">
         <div className="sm:max-w-5xl mx-auto sm:px-6 px-4">
