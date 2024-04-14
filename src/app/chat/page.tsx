@@ -165,7 +165,7 @@ const ChatComponent = () => {
               viewBox="0 0 24 24"
               strokeWidth="2.5"
               stroke="currentColor"
-              className="sm:w-7 w-5 sm:h-7 h-5 text-white cursor-pointer hover:opacity-80 transition ease-in-out duration-300"
+              className="sm:w-7 w-6 sm:h-7 h-6 text-white cursor-pointer hover:opacity-80 transition ease-in-out duration-300"
             >
               <path
                 strokeLinecap="round"
@@ -249,12 +249,12 @@ const ChatComponent = () => {
             message.role === 'bot' &&
             message.options &&
             message.options.length > 0 && (
-              <div className="flex space-x-4 sm:ml-[3.8rem] ml-[2.8rem] mt-4">
+              <div className="flex space-x-4 sm:ml-[3.8rem] ml-[2.1rem] mt-4">
                 {message.options.map((option, idx) => (
                   <button
                     key={idx}
                     onClick={() => selectOption(option)}
-                    className="sm:px-4 px-3 sm:py-2 py-[6px] bg-gray-700 transition ease-in-out duration-300 text-white rounded-lg hover:opacity-80 focus:outline-none"
+                    className="sm:px-4 px-3 sm:py-2 py-[5px] sm:text-base text-sm bg-gray-700 transition ease-in-out duration-300 text-white rounded-lg hover:opacity-80 focus:outline-none"
                   >
                     {option}
                   </button>
@@ -317,7 +317,7 @@ const ChatComponent = () => {
                 if (e.key === 'Enter') sendMessage();
               }}
             />
-            <span className="absolute sm:right-4 right-[16px] sm:top-[9.5px] top-[7.3px]">
+            <span className="absolute sm:right-4 right-[16px] sm:top-[9.5px] top-[7.1px]">
               {inputMessage.trim() === '' ? (
                 <Recorder recorder={sendAudioToBackend} loading={false} />
               ) : (
