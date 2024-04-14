@@ -163,7 +163,7 @@ const Register = () => {
     </div>
    
     ) : (
-      <div className='px-6 sm:px-10 pt-6'>
+      <div className='sm:mx-6 mx-3 my-6'>
    
       <NotificationContainer />
       <div>
@@ -181,7 +181,7 @@ const Register = () => {
             </button>
           </span>
         </div>
-        <div className='mt-32 sm:mt-36 sm:max-w-[355px] mx-auto'>
+        <div className='mt-12 sm:mb-8 sm:mt-36 sm:max-w-[355px] mx-auto'>
           <div className=''>
             <h2 className='text-[26px] font-bold text-gray-700 text-center'>Log in</h2>
             <div className='mt-10 relative' ref={loginEmailInputRef}>

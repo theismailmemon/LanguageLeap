@@ -162,7 +162,7 @@ const register = () => {
     };
   }, []);
   return (
-    <div className='mx-6 sm:mx-10 my-6'>
+    <div className='sm:mx-6 mx-3 my-6'>
       <NotificationContainer />
       <div>
         <div className='flex sm:justify-between justify-end'>
@@ -179,7 +179,7 @@ const register = () => {
             </button>
           </span>
         </div>
-        <div className='sm:mt-6 mt-16 sm:max-w-[355px] mx-auto'>
+        <div className='sm:mt-6 mt-12 sm:max-w-[355px] mx-auto'>
           <div className=''>
             <h2 className='text-3xl font-bold text-gray-700 text-center'>Create your profile</h2>
             <div className='mt-10 relative' ref={ageInputRef}>

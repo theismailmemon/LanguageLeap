@@ -74,7 +74,7 @@ const Page = () => {
           </svg>
         </div>
       </header>
-      <div className='mt-8 sm:max-w-5xl sm:px-2 px-6 mx-auto'>
+      <div className='my-8 sm:max-w-5xl sm:px-3 px-3 mx-auto'>
         <h4 className='text-center'>Choose your target language</h4>
         <div className='flex justify-center mt-2'>
           <div ref={dropdownRef} className={`mt-2 relative rounded-md shadow-lg sm:w-96 w-full ring-1 ring-black ring-opacity-5 space-y-1`}>

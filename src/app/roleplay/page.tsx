@@ -57,7 +57,7 @@ function Roleplays() {
             <div>
                 {currentRoleplay ? (
                     <div>
-                          <header className='bg-gray-800 flex items-center justify-between h-[80px] w-full px-6'>
+                          <header className='bg-gray-800 flex items-center justify-between h-[80px] w-full sm:px-6 px-3'>
                             <div className=''>
                                 <svg onClick={() => { router.push('/roleplay'); setCurrentRoleplay(null) }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" className="w-7 h-7 text-white cursor-pointer hover:opacity-80 transition ease-in-out duration-300">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
@@ -69,12 +69,12 @@ function Roleplays() {
                                 </svg>
                             </div>
                         </header>
-                        <div style={{ backgroundImage: `url(${currentRoleplay.image})` }} className='w-full h-screen px-2 flex justify-center'>
-                            <div className='sm:py-8 py-6 w-full'>
+                        <div style={{ backgroundImage: `url(${currentRoleplay.image})` }} className='w-full h-screen flex justify-center'>
+                            <div className='sm:py-8 py-6 sm:px-6 px-3 w-full'>
                                 <h2 className='sm:text-6xl text-center text-4xl text-white font-bold mt-8'>{currentRoleplay.type}</h2>
                                 <div className='sm:mt-20 mt-10 w-full'>
                                     <h2 className='sm:text-4xl text-center text-2xl font-bold text-white mt-10'>Ordering a taxi:</h2>
-                                    <div className='mt-6 bg-black bg-opacity-40 rounded-lg mx-2 px-3 sm:max-w-4xl sm:mx-auto sm:py-12 py-8'>
+                                    <div className='mt-6 bg-black bg-opacity-40 rounded-lg px-3 sm:max-w-4xl sm:mx-auto sm:py-12 py-8'>
                                         <div className=''>
                                             <h2 className='text-white text-center sm:text-3xl text-xl font-semibold'>Setting</h2>
                                             <h4 className='text-white mt-2 text-center sm:text-lg'>{currentRoleplay.setting}</h4>
@@ -96,7 +96,7 @@ function Roleplays() {
                     </div>
                 ) : (
                     <div>
-                        <header className='bg-gray-800 flex items-center justify-between h-[80px] w-full px-6'>
+                        <header className='bg-gray-800 flex items-center justify-between h-[80px] w-full sm:px-6 px-3'>
                             <div className=''>
                                 <svg onClick={() => { router.push('/dashboard'); setCurrentRoleplay(null) }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" className="w-7 h-7 text-white cursor-pointer hover:opacity-80 transition ease-in-out duration-300">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
@@ -108,10 +108,10 @@ function Roleplays() {
                                 </svg>
                             </div>
                         </header>
-                        <div className='sm:max-w-[1600px] sm:mx-auto sm:px-2 px-6 sm:my-16 my-8'>
-                            <div className='mx-auto sm:max-w-5xl text-center sm:mt-14 mt-8 sm:text-base text-sm sm:px-2'>
+                        <div className='sm:max-w-[1600px] sm:mx-auto sm:px-6 px-3 sm:my-16 my-8'>
+                            <div className='mx-auto sm:max-w-5xl text-center sm:mt-14 mt-8 sm:text-base text-sm'>
                                 <h2 className='sm:text-5xl text-3xl font-bold'>ROLEPLAYS</h2>
-                                <div className='w-full flex justify-center items-center bg-gray-100 rounded-2xl sm:px-20 px-6 sm:py-6 py-3 sm:mt-14 mt-8 sm:text-base text-sm text-black'>
+                                <div className='w-full flex justify-center items-center bg-gray-100 rounded-2xl sm:px-30 px-6 sm:py-6 py-3 sm:mt-14 mt-8 sm:text-base text-sm text-black'>
                                     With the Roleplay mode practicing language will be fun and exciting. You can pick various settings from daily conversations to creative and fantastic dialogues.
                                 </div>
                             </div>
@@ -124,7 +124,6 @@ function Roleplays() {
                                                 <div onClick={() => { handleRoleplayClick(roleplay.id); }} style={{ backgroundImage: `url(${roleplay.image})` }} className='transition-transform transform-gpu hover:scale-105 duration-500 sm:h-[150px] h-[130px] rounded-3xl flex justify-center items-center text-white cursor-pointer px-3'>
                                                     <div>
                                                         <h3 className="text-lg font-semibold text-center mt-2">{roleplay.title}</h3>
-                                                        <p className="text-[13px] mt-1 text-gray-100 text-center">{roleplay.scenario}</p>
                                                     </div>
                                                 </div>
                                             </div>

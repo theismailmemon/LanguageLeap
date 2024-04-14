@@ -56,7 +56,7 @@ const Content = () => {
 
 
       <div className="sm:pt-40 pt-10">
-        <div className="sm:max-w-5xl mx-auto sm:px-2 px-6">
+        <div className="sm:max-w-5xl mx-auto sm:px-3 px-3">
           <div className="sm:flex sm:gap-5 sm:justify-between sm:items-center">
             <div className="sm:w-[63%]">
               <h1 className="sm:text-[65px] text-3xl text-black font-bold sm:leading-[68px]">The Most Efficient Way to Learn a Language</h1>
@@ -140,7 +140,7 @@ const Content = () => {
         </div>
 
         <div className="bg-gray-100 sm:mt-24 mt-16 sm:py-20 py-10 px-4">
-          <div className="sm:max-w-5xl mx-auto sm:px-2 px-6">
+          <div className="sm:max-w-5xl mx-auto sm:px-3 px-3">
             <h2 className="text-black sm:text-5xl text-2xl text-center font-bold">THE TALKPAL DIFFERENCE</h2>
             <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 sm:gap-8 sm:mt-20 mt-10">
               <div className="bg-white rounded-md cursor-pointer px-6 py-6">
@@ -163,7 +163,7 @@ const Content = () => {
         </div>
 
         <div className="bg-black sm:py-20 py-10 px-4">
-          <div className="sm:max-w-5xl mx-auto sm:px-2 px-6">
+          <div className="sm:max-w-5xl mx-auto sm:px-3 px-3">
             <h2 className="text-white sm:text-5xl text-2xl text-center font-bold">INTRODUCING TALKPAL PREMIUM</h2>
             <h2 className="text-white sm:text-base text-base text-center pt-4 font-bold">AVAILABLE IN 57+ LANGUAGES</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 sm:gap-8 mt-10">
@@ -190,7 +190,7 @@ const Content = () => {
         </div>
 
         <div className="bg-gray-100 sm:py-20 py-10 px-4">
-          <div className="sm:max-w-5xl mx-auto sm:px-2 px-6">
+          <div className="sm:max-w-5xl mx-auto sm:px-3 px-3">
             <div>
               <div>
                 <h2 className="text-gray-700 font-bold">PRICING PLANS</h2>

@@ -102,7 +102,7 @@ const RecordingComponent = ({loading, recorder }) => {
           <div className="flex items-center">
             <button
               type="button"
-              className="bg-gray-700 w-8 h-8 flex items-center justify-center rounded-full transition ease-in-out duration-300 hover:opacity-80"
+              className="bg-gray-700 sm:w-8 sm:h-8 w-7 h-7 flex items-center justify-center rounded-full transition ease-in-out duration-300 hover:opacity-80"
               onClick={stopRecording}
               style={{ display: isRecording ? '' : 'none' }}
             >
@@ -110,7 +110,7 @@ const RecordingComponent = ({loading, recorder }) => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                class="w-[22px] h-[22px] text-white"
+                class="sm:w-[22px] sm:h-[22px] w-[20px] h-[20px] text-white"
               >
                 <path
                   fill-rule="evenodd"
@@ -121,7 +121,7 @@ const RecordingComponent = ({loading, recorder }) => {
             </button>
             <button
               type="button"
-              className={`bg-gray-700 w-8 h-8 flex items-center justify-center rounded-full hover:opacity-80 ${isRecording ? ' bg-red-600' : ' bg-gray-700'
+              className={`bg-gray-700 sm:w-8 sm:h-8 w-7 h-7 flex items-center justify-center rounded-full hover:opacity-80 ${isRecording ? ' bg-red-600' : ' bg-gray-700'
                 }`}
               onClick={startRecording}
               style={{ display: isRecording ? 'none' : '' }}
@@ -130,7 +130,7 @@ const RecordingComponent = ({loading, recorder }) => {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                class="w-[22px] h-[22px] text-white"
+                class="sm:w-[22px] sm:h-[22px] w-[20px] h-[20px] text-white"
               >
                 <path
                   d="M8.25 4.5a3.75 3.75 0 1 1 7.5 0v8.25a3.75 3.75 0 1 1-7.5 0V4.5Z"

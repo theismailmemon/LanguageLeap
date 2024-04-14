@@ -13,9 +13,9 @@ const page = () => {
     }
     return (
         <div>
-            <header className='bg-gray-800 flex items-center h-[80px] w-full px-6'>
+            <header className='bg-gray-800 flex items-center h-[80px] w-full sm:px-6 px-3'>
                 <div className='flex justify-start'>
-                    <svg onClick={() => { router.push('/dashboard') }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" className="w-7 h-7 text-white cursor-pointer hover:opacity-80 transition ease-in-out duration-300">
+                    <svg onClick={() => { router.push('/dashboard') }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" className="sm:w-7 w-5 sm:h-7 h-5 text-white cursor-pointer hover:opacity-80 transition ease-in-out duration-300">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                     </svg>
                 </div>
@@ -23,7 +23,7 @@ const page = () => {
                     <a href=""><h1 className='text-white sm:text-[28px] text-[24px] font-bold italic text-center'>LanguageLeap</h1></a>
                 </div>
             </header>
-            <div className='my-10 mx-auto max-w-[1600px] sm:flex gap-10 sm:px-2 px-6'>
+            <div className='my-10 mx-auto max-w-[1600px] sm:flex gap-10 sm:px-6 px-3'>
                 <div>
                     <div className='bg-gray-100 px-8 py-8 sm:w-80 rounded-2xl'>
                         <h1 className='flex gap-1 text-4xl font-semibold'>

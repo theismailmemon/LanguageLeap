@@ -155,8 +155,8 @@ const ChatComponent = () => {
   return (
     <div>
 
-      <header className="bg-gray-800 flex items-center justify-between h-[80px] w-full px-6 fixed">
-        <div className="flex gap-3">
+      <header className="bg-gray-800 flex items-center justify-between h-[80px] w-full sm:px-6 px-3 fixed">
+        <div className="flex items-center gap-3">
           <div>
             <svg
               onClick={() => setShowModal(true)}
@@ -165,7 +165,7 @@ const ChatComponent = () => {
               viewBox="0 0 24 24"
               strokeWidth="2.5"
               stroke="currentColor"
-              className="w-7 h-7 text-white cursor-pointer hover:opacity-80 transition ease-in-out duration-300"
+              className="sm:w-7 w-5 sm:h-7 h-5 text-white cursor-pointer hover:opacity-80 transition ease-in-out duration-300"
             >
               <path
                 strokeLinecap="round"
@@ -176,30 +176,30 @@ const ChatComponent = () => {
           </div>
           <div className="sm:hidden block">
             <div className="flex gap-3 items-center">
-              <h2 className="text-white text-2xl">Ibrahim Memon</h2>
+              <h2 className="text-white text-lg sm:text-2xl">Ibrahim Memon</h2>
             </div>
           </div>
         </div>
         <div className="sm:block hidden">
           <div className="flex gap-3 items-center">
-            <h2 className="text-white text-2xl">Ibrahim Memon</h2>
+            <h2 className="text-white text-lg sm:text-2xl">Ibrahim Memon</h2>
           </div>
         </div>
         <div className="flex sm:gap-8 gap-3">
           <img
             src="https://app.talkpal.ai/static/media/icon_chat-add_.2396bbbf02d3f2e8e8fecad864c267a1.svg"
             alt=""
-            className="cursor-pointer"
+            className="cursor-pointer sm:w-auto w-5"
           />
           <img
             src="https://app.talkpal.ai/static/media/History.6e2b0ef2ebb5471be6db7f6390eb08c6.svg"
             alt=""
-            className="cursor-pointer"
+            className="cursor-pointer sm:w-auto w-6"
           />
           <img
             src="https://app.talkpal.ai/static/media/gear-icon.7a96a1edb6b58f4eee647e7e873ed409.svg"
             alt=""
-            className="cursor-pointer"
+            className="cursor-pointer sm:w-auto w-6"
           />
         </div>
       </header>
@@ -212,12 +212,12 @@ const ChatComponent = () => {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="bg-white sm:max-w-sm sm:mx-0 mx-6 p-6 rounded-lg"
+            className="bg-white sm:max-w-sm sm:mx-6 mx-3 p-6 rounded-lg"
           >
             <p className="text-center text-xl font-semibold">
               Are you sure you want to leave the chat?
             </p>
-            <p className="text-center text-xl text-gray-500 pt-2">
+            <p className="text-center text-lg text-gray-500 pt-2">
               If you leave the chat, your conversation will be lost.
             </p>
             <div className="flex justify-between mt-8">
@@ -240,7 +240,7 @@ const ChatComponent = () => {
 
 
       <div className="pt-[78px]">
-      <div className="bg-gray-100 sm:pt-10 pt-5 px-6 mx-auto max-w-5xl h-screen">
+      <div className="bg-gray-100 sm:pt-10 pt-5 sm:px-6 px-3 mx-auto max-w-5xl h-screen">
       {messages.map((message, index) => (
         <div key={index}>
           <MessageRow message={message} loading={false} onReplay={replayMessage} />
@@ -268,12 +268,12 @@ const ChatComponent = () => {
       </div>
 
 
-      <div className="fixed w-full bottom-0 bg-white py-3 px-3 border-t">
+      <div className="fixed w-full bottom-0 bg-white py-3 sm:px-6 px-3 border-t">
         <div className="mx-auto max-w-5xl flex gap-4">
           <div className="relative w-full flex items-center gap-3">
             <button
               onClick={() => setUser({ ...user, isMuted: !user.isMuted })}
-              className="w-7 h-7 cursor-pointer text-gray-700"
+              className="sm:w-7 sm:h-7 h-6 w-6 cursor-pointer text-gray-700"
             >
               {user.isMuted ? (
                  <svg
@@ -283,7 +283,7 @@ const ChatComponent = () => {
                  viewBox="0 0 24 24"
                  stroke-width="1.5"
                  stroke="currentColor"
-                 className="w-7 h-7 cursor-pointer text-gray-700"
+                 className=""
                >
                  <path
                    stroke-linecap="round"
@@ -298,7 +298,7 @@ const ChatComponent = () => {
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                className="w-7 h-7 cursor-pointer text-gray-700"
+                className=""
               >
                 <path
                   stroke-linecap="round"
@@ -310,23 +310,22 @@ const ChatComponent = () => {
             </button>
             <input
               type="text"
-              className="w-full bg-gray-100 rounded-full pr-16 px-6 py-[14px] outline-none"
+              className="w-full bg-gray-100 rounded-full sm:pr-16 pr-14 sm:px-6 px-5 sm:py-[14px] py-[9px] outline-none"
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               onKeyUp={(e) => {
                 if (e.key === 'Enter') sendMessage();
               }}
             />
-            <span className="absolute right-4">
+            <span className="absolute sm:right-4 right-[16px] sm:top-[9.5px] top-[7.3px]">
               {inputMessage.trim() === '' ? (
                 <Recorder recorder={sendAudioToBackend} loading={false} />
               ) : (
                 <button onClick={sendMessage}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="cursor-pointer icon icon-tabler icon-tabler-send-2"
-                    width="32"
-                    height="32"
+                    className="cursor-pointer icon icon-tabler icon-tabler-send-2 sm:w-[32px] w-[26px] sm:h-[32px] h-[26px]"
+                  
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="#374151"

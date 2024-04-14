@@ -24,7 +24,7 @@ const Header = () => {
   }
 
   return (
-    <header className='bg-gray-800 sm:max-full h-[68px] w-full px-6'>
+    <header className='bg-gray-800 sm:max-full h-[68px] w-full sm:px-6 px-3'>
       <div className='flex justify-between items-center h-full mx-auto relative sm:max-w-6xl'>
         <div>
         <italic className='text-white sm:text-[28px] text-[24px] font-bold italic '>LanguageLeap</italic>
