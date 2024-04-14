@@ -127,7 +127,7 @@ const Content = () => {
               <div className="mt-12 flex">
                 <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-6 gap-x-6 gap-y-6 sm:gap-x-5 sm:gap-y-8">
                   {languageButton.map((button, index) => (
-                    <button key={index} className="flex gap-5 w-full items-center">
+                    <button key={index} className="flex gap-5 w-full items-center hover:scale-105 transform transition-transform duration-300">
                       <span>
                         <img src={button.imageUrl} alt={button.altText} className="w-8 h-8" />
                       </span>

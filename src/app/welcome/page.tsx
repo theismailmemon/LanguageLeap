@@ -14,8 +14,27 @@ const Page = () => {
   const [selectedDailySpentTime, setSelectedDailySpentTime] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [isDropDown, setIsDropDown] = useState(true);
-
   const dropdownRef = useRef(null);
+  const [options, setOptions] = useState('');
+  const [progressWidth, setProgressWidth] = useState(0);
+
+  useEffect(() => {
+    let intervalId;
+    intervalId = setInterval(() => {
+      setProgressWidth((prevWidth) => {
+        if (prevWidth < 100) {
+          return prevWidth + 1;
+        } else {
+          clearInterval(intervalId);
+          return prevWidth;
+        }
+      });
+    }, 20);
+    
+    // Cleanup function to clear interval when component unmounts
+    return () => clearInterval(intervalId);
+  }, []); // Empty dependency array to run effect only once
+
   const languages = [
     {
       id: "1",
@@ -415,7 +434,6 @@ const Page = () => {
     }
   };
 
-
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value.toLowerCase());
   };
@@ -440,9 +458,7 @@ const Page = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, []); 
-
-  //
+  }, []);
 
   const handleSecondContinue = (languageId) => {
     setSelectedLanguage(languageId);
@@ -477,9 +493,7 @@ const Page = () => {
 
   return (
     <>
-      {/*  */}
 
-      {/*  */}
       {continuePage === 7 ? null : (
         <div
           className={`fixed w-full bg-white top-0 sm:pt-8 pt-5 sm:pb-3  ${isScrolled
@@ -556,7 +570,7 @@ const Page = () => {
                 )}
                 {continuePage === 6 && (
                   <h1 className="relative w-[max-content] font-mono before:absolute before:inset-0 before:animate-typewriter before:bg-white after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-black">
-                   What’s your daily learning goal?
+                    What’s your daily learning goal?
                   </h1>
                 )}
               </div>
@@ -564,7 +578,6 @@ const Page = () => {
           </div>
         </div>
       )}
-
 
       {continuePage === 1 && (
         <div className="">
@@ -643,52 +656,48 @@ const Page = () => {
         </div>
       )}
 
-      {/*  */}
-
       {continuePage === 2 && (
         <div className="">
-        <div className="my-6 sm:mt-[282px] mt-[218px] mx-auto sm:max-w-6xl sm:px-5 px-4">
-          <div className="sm:flex sm:justify-center sm:mt-20 my-8">
-            <div className=" flex items-center justify-center">
-              <div className="relative group w-full" ref={dropdownRef}>
-                <div className=' mt-2 rounded-md shadow-lg ring-1 sm:w-96 w-full ring-black ring-opacity-5 p-1 space-y-1'>
-                  {/* Search input */}
-                  {isDropDown === true ? (
-              <input
-                onChange={handleInputChange}
-                value={searchTerm}
-                onFocus={() => setIsDropDown(true)} // Show dropdown when input is focused
-                className="block w-full px-4 py-2 text-gray-800 border rounded-md border-gray-200 focus:outline-none"
-                type="text"
-                placeholder="Search items"
-                autoComplete="off"
-              />
-            ) : (
-              <div onClick={() => { setIsDropDown(true); }} className="cursor-default h-10 block w-full px-4 py-2 text-gray-800 border rounded-md border-gray-200 focus:outline-none">
-                {selectedCompany || 'Select Language'}
-              </div>
-            )}
-                  {/* Dropdown content goes here */}
-                  {isDropDown && dropdownItems
-                    .filter((item) => item.name.toLowerCase().includes(searchTerm))
-                    .map((item, index) => (
-                      <a
-                        key={index}
-                        onClick={() => handleThirdContinue(item.name)}
-                        className={`${selectedCompany === item.name ? 'bg-gray-200' : 'hover:bg-gray-200'} my-2 block px-4 mx-2 py-2 text-gray-700 cursor-pointer rounded-md`}
-                      >
-                        {item.name}
-                      </a>
-                    ))}
+          <div className="my-6 sm:mt-[282px] mt-[218px] mx-auto sm:max-w-6xl sm:px-5 px-4">
+            <div className="sm:flex sm:justify-center sm:mt-20 my-8">
+              <div className=" flex items-center justify-center">
+                <div className="relative group w-full" ref={dropdownRef}>
+                  <div className=' mt-2 rounded-md shadow-lg ring-1 sm:w-96 w-full ring-black ring-opacity-5 p-1 space-y-1'>
+                    {/* Search input */}
+                    {isDropDown === true ? (
+                      <input
+                        onChange={handleInputChange}
+                        value={searchTerm}
+                        onFocus={() => setIsDropDown(true)} // Show dropdown when input is focused
+                        className="block w-full px-4 py-2 text-gray-800 border rounded-md border-gray-200 focus:outline-none"
+                        type="text"
+                        placeholder="Search items"
+                        autoComplete="off"
+                      />
+                    ) : (
+                      <div onClick={() => { setIsDropDown(true); }} className="cursor-default h-10 block w-full px-4 py-2 text-gray-800 border rounded-md border-gray-200 focus:outline-none">
+                        {selectedCompany || 'Select Language'}
+                      </div>
+                    )}
+                    {/* Dropdown content goes here */}
+                    {isDropDown && dropdownItems
+                      .filter((item) => item.name.toLowerCase().includes(searchTerm))
+                      .map((item, index) => (
+                        <a
+                          key={index}
+                          onClick={() => handleThirdContinue(item.name)}
+                          className={`${selectedCompany === item.name ? 'bg-gray-200' : 'hover:bg-gray-200'} my-2 block px-4 mx-2 py-2 text-gray-700 cursor-pointer rounded-md`}
+                        >
+                          {item.name}
+                        </a>
+                      ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       )}
-
-      {/*  */}
 
       {continuePage === 3 && (
         <div className="">
@@ -721,7 +730,6 @@ const Page = () => {
         </div>
       )}
 
-      {/*  */}
 
       {continuePage === 4 && (
         <div className="">
@@ -753,8 +761,6 @@ const Page = () => {
           </div>
         </div>
       )}
-
-      {/*  */}
 
       {continuePage === 5 && (
         <div className="">
@@ -843,67 +849,65 @@ const Page = () => {
         </div>
       )}
 
-      {/*  */}
-
       {continuePage === 6 && (
-       <div className="">
-       <div className="my-6 sm:mt-[282px] mt-[218px] mx-auto sm:max-w-6xl sm:px-4 px-4">
-         <div className="sm:flex sm:justify-center sm:mt-20 mt-12">
-           <div className="grid grid-cols-1 gap-4">
-             {dailySpentTime.map((dailySpentTime, index) => (
-               <div
-                 key={dailySpentTime.id}
-                 className={`sm:px-[20px] sm:py-[17px] px-[18px] py-[13px] cursor-pointer flex justify-between items-center gap-5 rounded-[14px] border-2 sm:w-[530px] w-full ${selectedDailySpentTime === dailySpentTime.id
-                   ? "border-sky-300 bg-sky-100"
-                   : "border-gray-200 hover:bg-gray-100"
-                   }`}
-                 onClick={() => handleContinue(dailySpentTime.id)}
-               >
-                 <h1
-                   className={`${selectedDailySpentTime === dailySpentTime.id
-                     ? "text-sky-500"
-                     : "text-gray-700"
-                     } text-[17px]  font-bold`}
-                 >
-                   {dailySpentTime.time} min / day
-                 </h1>
-                 <h1
-                   className={`${selectedDailySpentTime === dailySpentTime.id
-                     ? "text-sky-500"
-                     : "text-gray-600"
-                     } text-lg  font-mediumn`}
-                 >
-                   {dailySpentTime.label}
-                 </h1>
-               </div>
-             ))}
-           </div>
-         </div>
-       </div>
-     </div>
+        <div className="">
+          <div className="my-6 sm:mt-[282px] mt-[218px] mx-auto sm:max-w-6xl sm:px-4 px-4">
+            <div className="sm:flex sm:justify-center sm:mt-20 mt-12">
+              <div className="grid grid-cols-1 gap-4">
+                {dailySpentTime.map((dailySpentTime, index) => (
+                  <div
+                    key={dailySpentTime.id}
+                    className={`sm:px-[20px] sm:py-[17px] px-[18px] py-[13px] cursor-pointer flex justify-between items-center gap-5 rounded-[14px] border-2 sm:w-[530px] w-full ${selectedDailySpentTime === dailySpentTime.id
+                      ? "border-sky-300 bg-sky-100"
+                      : "border-gray-200 hover:bg-gray-100"
+                      }`}
+                    onClick={() => handleContinue(dailySpentTime.id)}
+                  >
+                    <h1
+                      className={`${selectedDailySpentTime === dailySpentTime.id
+                        ? "text-sky-500"
+                        : "text-gray-700"
+                        } text-[17px]  font-bold`}
+                    >
+                      {dailySpentTime.time} min / day
+                    </h1>
+                    <h1
+                      className={`${selectedDailySpentTime === dailySpentTime.id
+                        ? "text-sky-500"
+                        : "text-gray-600"
+                        } text-lg  font-mediumn`}
+                    >
+                      {dailySpentTime.label}
+                    </h1>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       )}
-
-
 
       {continuePage === 7 && (
         <div className="h-screen">
           <div className="flex justify-center items-center h-full">
             <div>
-              <div className="border-2 flex items-center justify-center rounded-[14px] sm:px-5 px-4 sm:py-[15px] sm:text-lg py-[12px] text-[17px] font-medium text-gray-700 mb-5 border-gray-200 mx-auto w-[280px]">
-                <h1
-                  className="relative w-[max-content] font-mono 
-                                  before:absolute before:inset-0 before:animate-typewriter before:bg-white 
-                                  after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-black"
-                >
-                  It can be hard stay motivated!
-                </h1>
+
+              <div className="">
+                <div>
+                  <div className="mb-4">
+                  {progressWidth >= 100 && (
+                    <div className="text-green-600 text-2xl text-center font-semibold">Well Done!</div>
+                  )}
+                    <div className="bg-gray-300 w-80 h-16 relative rounded overflow-hidden mt-8">
+                      <div className="bg-green-500 text-white text-lg flex items-center justify-center h-full" style={{ width: `${progressWidth}%` }}>
+                      <span className=" absolute left-[48%]">{progressWidth}</span>
+                      </div>
+                    </div>
+                  </div>
+                
+                </div>
               </div>
 
-              <img
-                src="https://upload.wikimedia.org/wikipedia/en/thumb/6/64/Duo_from_Duolingo.svg/220px-Duo_from_Duolingo.svg.png"
-                alt=""
-                className="mx-auto "
-              />
             </div>
           </div>
         </div>
@@ -919,11 +923,11 @@ const Page = () => {
                   (continuePage === 2 && selectedCompany === null) ||
                   (continuePage === 3 && selectedNetwrok === null) ||
                   (continuePage === 4 && selectedHear === null) ||
-                  (continuePage === 6 && selectedDailySpentTime === null) 
+                  (continuePage === 6 && selectedDailySpentTime === null)
                   ? "bg-gray-200 tranistion ease-in-out duration-300 text-gray-400 cursor-not-allowed"
                   : "bg-gray-700 tranistion ease-in-out duration-300 borderGreen hover:opacity-70 text-white"
                 } text-center text-[15px] rounded-[16px] h-[50px] sm:h-[54px] flex justify-center items-center w-full sm:w-44 font-bold`}
-              onClick={() => {
+              onClick={(e) => {
                 if (
                   (continuePage === 1 && selectedLanguage === null) ||
                   (continuePage === 2 && selectedCompany === null) ||
@@ -934,7 +938,16 @@ const Page = () => {
                   // Do nothing if required selection is null
                 } else {
                   if (continuePage === 7) {
-                    router.push("/dashboard");
+                    setLoadingContinue(true);
+                    
+                    setTimeout(() => {
+                     
+                        e.preventDefault();
+                        setOptions('');
+                        setProgressWidth(0); 
+                      router.push("/dashboard");
+                    }, 2000);
+                  
                   } else {
                     setLoadingContinue(true);
                     setTimeout(() => {

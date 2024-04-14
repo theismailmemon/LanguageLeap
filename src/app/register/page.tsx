@@ -33,7 +33,7 @@ const register = () => {
 
         localStorage.setItem('token', (data.user as any).accessToken);
 
-        router.push('/dashboard');
+        router.push('/welcome');
         NotificationManager.success('Registration successful!.', 'Success');
         setLoadingAnimation(false)
         console.log(data.user.displayName, "authData")
@@ -54,7 +54,7 @@ const register = () => {
           // Access token ko localStorage mein save karna
           localStorage.setItem('token', token)
           // Ab yahan par apne aage ke karyavahi karein, jaise redirect ya notification
-          router.push('/dashboard');
+          router.push('/welcome');
           NotificationManager.success('You have successfully logged in!', 'Success');
         }).catch(error => {
           console.error('Error retrieving ID token:', error);

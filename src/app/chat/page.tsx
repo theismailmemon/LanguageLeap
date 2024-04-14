@@ -249,7 +249,7 @@ const ChatComponent = () => {
             message.role === 'bot' &&
             message.options &&
             message.options.length > 0 && (
-              <div className="flex space-x-4 sm:ml-[3.8rem] ml-[2.1rem] mt-4">
+              <div className="flex space-x-4 sm:ml-[3.8rem] ml-[2.1rem] sm:mt-4 mt-3-">
                 {message.options.map((option, idx) => (
                   <button
                     key={idx}
