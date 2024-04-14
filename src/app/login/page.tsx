@@ -2,13 +2,13 @@
 'use client';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
-
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { dataBase } from '../../../firebaseConfig';
+import userData from '../../../User.json';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth';
 
-const Register = () => {
+const Login = () => {
   const router = useRouter();
   const [mainLoadingAnimation, setMainLoadingAnimation] = useState(false);
   const [loadingAnimation, setLoadingAnimation] = useState(false);
@@ -36,29 +36,32 @@ const Register = () => {
     } 
   }, [router]);
   const handleSignIn = (event) => {
-    event.preventDefault('enter'); // Prevent default form submission behavior
+    event.preventDefault(); // Correct usage of preventDefault
+    
     if (!validateEmail(loginemail) || loginpassword.length < 6) {
-      return; // Prevent sign-in if email or password is invalid
+        return; // Prevent sign-in if email or password is invalid
     }
-    setLoadingAnimation(true)
+    
+    setLoadingAnimation(true);
     signInWithEmailAndPassword(dataBase, loginemail, loginpassword)
-      .then((data) => {
-        localStorage.setItem('token', (data.user as any).accessToken);
+        .then((data) => {
+          userData.email = data.user.email
+            localStorage.setItem('token', (data.user as any).accessToken);
+            router.push('/dashboard');
+            setLoadingAnimation(false);
+            NotificationManager.success('You have successfully logged in!', 'Success');
+            setLoginInformation(data);
+        })
+        .catch((err) => {
+            if (err.code === 'auth/invalid-credential') {
+                NotificationManager.error('User Account not found!', 'Error');
+            } else {
+                NotificationManager.error(err.code, 'Error');
+            }
+            setLoadingAnimation(false);
+        });
+};
 
-        router.push('/dashboard');
-        setLoadingAnimation(false)
-        NotificationManager.success('You have successfully logged in!', 'Success');
-        setLoginInformation(data.user)
-      })
-      .catch((err) => {
-        if (err.code === 'auth/invalid-credential') {
-          NotificationManager.error('User Account not found!', 'Error');
-        } else {
-          NotificationManager.error(err.code, 'Error');
-        }
-        setLoadingAnimation(false)
-      })
-  }
 
   const handleWithGoogle = () => {
     const auth = getAuth();
@@ -269,4 +272,4 @@ const Register = () => {
   )
 }
 
-export default Register;
+export default Login;

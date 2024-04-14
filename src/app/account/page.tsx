@@ -1,9 +1,12 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import { dataBase } from "../../../firebaseConfig";
+import userData from '../../../User.json';
+
 import { signOut } from "firebase/auth";
 import { useRouter } from 'next/navigation';
 const page = () => {
+
     const router = useRouter();
     const handleLogout = () => {
         signOut(dataBase).then(val => {
@@ -27,10 +30,10 @@ const page = () => {
                 <div>
                     <div className='bg-gray-100 px-8 py-8 sm:w-80 rounded-2xl'>
                         <h1 className='flex gap-1 text-4xl font-semibold'>
-                            <span>Ismail</span>
-                            <span>Memon</span>
+                            <span> {userData.firstName}</span>
+                            <span>{userData.lastName}</span>
                         </h1>
-                        <h4 className='pt-8'>Joined April 2024</h4>
+                        {/* <h4 className='pt-8'>Joined April 2024</h4> */}
                         <div className='flex items-center gap-4 mt-5'>
                             <span><img src="https://admin.talkpal.ai/uploads/2023/09/spanish.png" alt="" className='h-10 w-10' /></span>
                             <span className='bg-white rounded-full px-3 py-[2px] text-gray-500'>Spanish</span>
@@ -50,20 +53,20 @@ const page = () => {
                     <div className='mt-5'>
                         <div>
                             <h5 className='text-gray-500'>Email</h5>
-                            <div className='bg-white rounded-lg px-3 py-[10px] sm:max-w-80 mt-2'>
-                                iamismailmemon@gmail.com
+                            <div className='bg-white rounded-lg h-10 px-3 py-[10px] sm:max-w-80 mt-2'>
+                                {userData.email}
                             </div>
                         </div>
                         <div className='mt-5'>
                             <h5 className='text-gray-500'>First Name</h5>
-                            <div className='bg-white rounded-lg px-3 py-[10px] sm:max-w-80 mt-2'>
-                                Ismail
+                            <div className='bg-white rounded-lg h-10 px-3 py-[10px] sm:max-w-80 mt-2'>
+                            {userData.firstName}
                             </div>
                         </div>
                         <div className='mt-5'>
                             <h5 className='text-gray-500'>Last Name</h5>
-                            <div className='bg-white rounded-lg px-3 py-[10px] sm:max-w-80 mt-2'>
-                                Memon
+                            <div className='bg-white rounded-lg h-10 px-3 py-[10px] sm:max-w-80 mt-2'>
+                            {userData.lastName}
                             </div>
                         </div>
                     </div>

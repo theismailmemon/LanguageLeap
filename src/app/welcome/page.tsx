@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import React, { useState, useEffect, useRef } from "react";
 const Page = () => {
   const router = useRouter();
-  const [continuePage, setContinuePage] = useState(6);
+  const [continuePage, setContinuePage] = useState(1);
   const [isScrolled, setIsScrolled] = useState(false);
   const progressPercentage = (continuePage - 1) * (100 / 6);
   const [loadingContinue, setLoadingContinue] = useState(false);

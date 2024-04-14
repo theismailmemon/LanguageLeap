@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { dataBase } from '../../../firebaseConfig';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
+import userData from '../../../User.json';
 import 'react-notifications/lib/notifications.css';
 import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword } from 'firebase/auth';
 const register = () => {
@@ -11,28 +12,30 @@ const register = () => {
   const [isPassword, setisPassword] = useState(true);
   const [registerPassword, setRegisterPassword] = useState('');
   const [registerEmail, setRegisterEmail] = useState('');
-  const [age, setAge] = useState('');
+  const [lastName, setLastName] = useState('');
   const [name, setName] = useState('');
-  const [ageX, setAgeX] = useState(false);
-  const [nameX, setNameX] = useState(false);
+  const [lastnameX, setLastNameX] = useState(false);
+  const [NameX, setNameX] = useState(false);
   const [loadingAnimation, setLoadingAnimation] = useState(false);
   const [registerEmailX, setRegisterEmailX] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
-  const ageInputRef = useRef(null);
+  const lastNameInputRef = useRef(null);
   const nameInputRef = useRef(null);
   const registerInputRef = useRef(null);
   const handleCreateAccount = () => {
 
-    if (!validateEmail(registerEmail) || registerPassword.length < 6) {
+    if (!validateEmail(registerEmail) || registerPassword.length < 6 || name.length < 1 || lastName.length < 1) {
       return; // Prevent sign-in if email or password is invalid
     }
     setLoadingAnimation(true)
     createUserWithEmailAndPassword(dataBase, registerEmail, registerPassword)
       .then((data) => {
+        userData.email = data.user.email
+        userData.firstName = name
+        userData.lastName = lastName
 
         localStorage.setItem('token', (data.user as any).accessToken);
-
         router.push('/welcome');
         NotificationManager.success('Registration successful!.', 'Success');
         setLoadingAnimation(false)
@@ -68,15 +71,15 @@ const register = () => {
   };
   
 
-  const handleAgeChange = (e) => {
-    setAge(e.target.value);
+  const handleLastNameChange = (e) => {
+    setLastName(e.target.value);
   }
   const handleNameChange = (e) => {
     setName(e.target.value);
   }
 
-  const handleXAge = () => {
-    setAge('')
+  const handleXLastName = () => {
+    setLastName('')
   }
   const handleXName = () => {
     setName('')
@@ -88,8 +91,8 @@ const register = () => {
     setRegisterEmail('')
   }
 
-  const handleAgeClick = () => {
-    setAgeX(true);
+  const handleLastNameClick = () => {
+    setLastNameX(true);
   }
   const handleRegisterEmailClick = () => {
     setRegisterEmailX(true);
@@ -138,8 +141,8 @@ const register = () => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
-        ageInputRef.current &&
-        !ageInputRef.current.contains(event.target) &&
+        lastNameInputRef.current &&
+        !lastNameInputRef.current.contains(event.target) &&
 
         nameInputRef.current &&
         !nameInputRef.current.contains(event.target) &&
@@ -149,7 +152,7 @@ const register = () => {
       ) {
 
         setRegisterEmailX(false);
-        setAgeX(false);
+        setLastNameX(false);
         setNameX(false);
 
       }
@@ -182,26 +185,11 @@ const register = () => {
         <div className='sm:mt-6 mt-24 sm:max-w-[355px] mx-auto'>
           <div className=''>
             <h2 className='text-3xl font-bold text-gray-700 text-center'>Create your profile</h2>
-            <div className='mt-10 relative' ref={ageInputRef}>
-              <input type="text" className='pr-[44px] text-[17px] px-[13px] bg-gray-50 text-gray-700 placeholder:text-gray-500 rounded-[13px] border-2 border-gray-200 h-[50px] font-medium w-full focus:outline-none focus:border-gray-400' placeholder='Age' value={age} onChange={handleAgeChange} onClick={handleAgeClick} />
-              {ageX === true && (
-                <span className='absolute top-[14px] right-4 bg-gray-400 rounded-full h-[18px] w-[18px] flex justify-center items-center cursor-pointer'>
-                  <svg xmlns="http://www.w3.org/2000/svg" onClick={handleXAge} className="icon icon-tabler icon-tabler-x" width="12" height="12" viewBox="0 0 24 24" stroke-width="2.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M18 6l-12 12" />
-                    <path d="M6 6l12 12" />
-                  </svg>
-                </span>
-              )}
-            </div>
-            <div className='mt-1'>
-              <p className='text-[16px] text-gray-600'>
-                Providing your age ensures you get the right Duolingo experience. For more details, please visit our <a href="" className='text-gray-700 font-semibold'>Privacy Policy</a>.
-              </p>
-            </div>
-            <div className='mt-5 relative' ref={nameInputRef}>
-              <input type="text" className='pr-[44px] text-[17px] px-[13px] bg-gray-50 text-gray-700 placeholder:text-gray-500 rounded-[13px] border-2 border-gray-200 h-[50px] font-medium w-full focus:outline-none focus:border-gray-400' placeholder='Name (optional)' value={name} onChange={handleNameChange} onClick={handleNameClick} />
-              {nameX === true && (
+        
+         
+            <div className='mt-10 relative' ref={nameInputRef}>
+              <input type="text" className='pr-[44px] text-[17px] px-[13px] bg-gray-50 text-gray-700 placeholder:text-gray-500 rounded-[13px] border-2 border-gray-200 h-[50px] font-medium w-full focus:outline-none focus:border-gray-400' placeholder='First Name' value={name} onChange={handleNameChange} onClick={handleNameClick} />
+              {NameX === true && (
                 <span className='absolute top-[14px] right-4 bg-gray-400 rounded-full h-[18px] w-[18px] flex justify-center items-center cursor-pointer'>
                   <svg xmlns="http://www.w3.org/2000/svg" onClick={handleXName} className="icon icon-tabler icon-tabler-x" width="12" height="12" viewBox="0 0 24 24" stroke-width="2.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -212,8 +200,21 @@ const register = () => {
               )}
             </div>
 
+            <div className='mt-5 relative' ref={lastNameInputRef}>
+              <input type="text" className='pr-[44px] text-[17px] px-[13px] bg-gray-50 text-gray-700 placeholder:text-gray-500 rounded-[13px] border-2 border-gray-200 h-[50px] font-medium w-full focus:outline-none focus:border-gray-400' placeholder='Last Name' value={lastName} onChange={handleLastNameChange} onClick={handleLastNameClick} />
+              {lastnameX === true && (
+                <span className='absolute top-[14px] right-4 bg-gray-400 rounded-full h-[18px] w-[18px] flex justify-center items-center cursor-pointer'>
+                  <svg xmlns="http://www.w3.org/2000/svg" onClick={handleXLastName} className="icon icon-tabler icon-tabler-x" width="12" height="12" viewBox="0 0 24 24" stroke-width="2.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M18 6l-12 12" />
+                    <path d="M6 6l12 12" />
+                  </svg>
+                </span>
+              )}
+            </div>
+
             <div className='mt-5 relative' ref={registerInputRef}>
-              <input type="email" className={`${emailError === true ? "border-red-500" : "focus:border-gray-400 border-gray-200"} pr-12 text-[17px] px-[13px] bg-gray-50 text-gray-700 placeholder:text-gray-500 rounded-[13px] border-2 h-[50px] font-medium w-full focus:outline-none`} placeholder='Email or Username' value={registerEmail} onChange={handleRegisterEmailChange} onClick={handleRegisterEmailClick} />
+              <input type="email" className={`${emailError === true ? "border-red-500" : "focus:border-gray-400 border-gray-200"} pr-12 text-[17px] px-[13px] bg-gray-50 text-gray-700 placeholder:text-gray-500 rounded-[13px] border-2 h-[50px] font-medium w-full focus:outline-none`} placeholder='Email' value={registerEmail} onChange={handleRegisterEmailChange} onClick={handleRegisterEmailClick} />
               {registerEmailX === true && (
                 <span className='absolute top-[14px] right-4 bg-gray-400 rounded-full h-[18px] w-[18px] flex justify-center items-center cursor-pointer'>
                   <svg xmlns="http://www.w3.org/2000/svg" onClick={handleXRegisterEmail} className="icon icon-tabler icon-tabler-x" width="12" height="12" viewBox="0 0 24 24" stroke-width="2.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">

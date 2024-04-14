@@ -84,7 +84,7 @@ const Page = () => {
                 onChange={handleInputChange}
                 value={searchTerm}
                 onFocus={() => setDropdownVisible(true)} // Show dropdown when input is focused
-                className="block w-full px-4 py-2 text-gray-800 border rounded-md border-gray-200 focus:outline-none"
+                className="block w-full px-4 py-2 h-10 text-gray-800 border rounded-md border-gray-200 focus:outline-none"
                 type="text"
                 placeholder="Search items"
                 autoComplete="off"
