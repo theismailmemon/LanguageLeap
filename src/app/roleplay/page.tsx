@@ -59,7 +59,7 @@ function Roleplays() {
                     <div>
                           <header className='bg-gray-800 flex items-center justify-between h-[80px] w-full sm:px-6 px-4'>
                             <div className=''>
-                                <svg onClick={() => { router.push('/roleplay'); setCurrentRoleplay(null) }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" className="w-7 h-7 text-white cursor-pointer hover:opacity-80 transition ease-in-out duration-300">
+                                <svg onClick={() => { router.push('/roleplay'); setCurrentRoleplay(null) }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" className="sm:w-7 w-5 sm:h-7 h-5 text-white cursor-pointer hover:opacity-80 transition ease-in-out duration-300">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                                 </svg>
                             </div>
