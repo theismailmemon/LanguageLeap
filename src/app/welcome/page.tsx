@@ -18,22 +18,6 @@ const Page = () => {
   const [options, setOptions] = useState('');
   const [progressWidth, setProgressWidth] = useState(0);
 
-  useEffect(() => {
-    let intervalId;
-    intervalId = setInterval(() => {
-      setProgressWidth((prevWidth) => {
-        if (prevWidth < 100) {
-          return prevWidth + 1;
-        } else {
-          clearInterval(intervalId);
-          return prevWidth;
-        }
-      });
-    }, 20);
-    
-    // Cleanup function to clear interval when component unmounts
-    return () => clearInterval(intervalId);
-  }, []); // Empty dependency array to run effect only once
 
   const languages = [
     {
@@ -317,6 +301,7 @@ const Page = () => {
     //     "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg",
     // },
   ];
+
   const dropdownItems = [
     {
       name: "Russia",
@@ -338,6 +323,7 @@ const Page = () => {
     },
 
   ];
+
   const network = [
     {
       id: 1,
@@ -360,6 +346,7 @@ const Page = () => {
       name: "I am intermediate or higher",
     },
   ];
+
   const hear = [
     {
       id: 1,
@@ -397,13 +384,13 @@ const Page = () => {
       name: "Other",
     },
   ];
+
   const dailySpentTime = [
     { id: 1, time: "5", label: "Casual" },
     { id: 2, time: "10", label: "Regular" },
     { id: 3, time: "15", label: "Serious" },
     { id: 4, time: "20", label: "Intense" },
   ];
-
 
   const blockNotification = () => {
     Notification.requestPermission().then((permission) => {
@@ -415,6 +402,7 @@ const Page = () => {
       }
     });
   };
+
   const allowNotification = () => {
     if (Notification.permission !== "granted") {
       Notification.requestPermission().then((permission) => {
@@ -542,7 +530,7 @@ const Page = () => {
                 alt=""
                 className="sm:h-36 sm:w-36 h-28 w-28"
               />
-              <div className="border-2 flex items-center justify-center rounded-[14px] sm:px-5 px-4 sm:py-[12px] sm:text-lg py-[12px] text-[17px] font-medium text-gray-700 mb-5 border-gray-200 sm:w-auto w-56">
+              <div className="border-2 flex items-center justify-center rounded-[14px] sm:px-5 px-4 sm:py-[12px] sm:text-lg py-[12px] text-[17px] font-medium text-gray-700 mb-5 border-gray-200 sm:w-auto w-52">
                 {continuePage === 1 && (
                   <h1 className="relative w-[max-content] font-mono before:absolute before:inset-0 before:animate-typewriter before:bg-white after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-black">
                     Which language do you want to learn?
@@ -730,7 +718,6 @@ const Page = () => {
         </div>
       )}
 
-
       {continuePage === 4 && (
         <div className="">
           <div className="my-6 sm:mt-[282px] mt-[218px] mx-auto sm:max-w-6xl sm:px-4 px-4">
@@ -895,16 +882,16 @@ const Page = () => {
               <div className="">
                 <div>
                   <div className="mb-4">
-                  {progressWidth >= 100 && (
-                    <div className="text-green-600 text-2xl text-center font-semibold">Well Done!</div>
-                  )}
+                    {progressWidth >= 100 && (
+                      <div className="text-green-600 text-2xl text-center font-semibold">Well Done!</div>
+                    )}
                     <div className="bg-gray-300 w-80 h-16 relative rounded overflow-hidden mt-8">
                       <div className="bg-green-500 text-white text-lg flex items-center justify-center h-full" style={{ width: `${progressWidth}%` }}>
-                      <span className=" absolute left-[48%]">{progressWidth}</span>
+                        <span className=" absolute left-[48%]">{progressWidth}</span>
                       </div>
                     </div>
                   </div>
-                
+
                 </div>
               </div>
 
@@ -915,7 +902,7 @@ const Page = () => {
 
       <div className="sm:mt-32 mt-28">
         <div className="border-t-2 bg-white fixed bottom-0 w-full border-gray-200">
-          <div className="sm:py-7 py-5 sm:px-4 px-4 flex justify-end max-w-6xl mx-auto">
+          <div className="sm:py-7 py-4 sm:px-4 px-4 flex justify-end sm:max-w-6xl mx-auto">
             <button
               className={`${loadingContinue === true
                 ? "bg-gray-700 tranistion ease-in-out duration-300 borderGreen text-white cursor-not-allowed"
@@ -932,22 +919,34 @@ const Page = () => {
                   (continuePage === 1 && selectedLanguage === null) ||
                   (continuePage === 2 && selectedCompany === null) ||
                   (continuePage === 3 && selectedNetwrok === null) ||
-                  (continuePage === 4 && selectedHear === null) ||
-                  (continuePage === 6 && selectedDailySpentTime === null)
+                  (continuePage === 4 && selectedHear === null)
+
                 ) {
-                  // Do nothing if required selection is null
                 } else {
+                  if (continuePage === 6) {
+                    setLoadingContinue(true);
+
+                    setTimeout(() => {
+                      e.preventDefault();
+
+                      let width = 0;
+                      const intervalId = setInterval(() => {
+                        if (width < 100) {
+                          setProgressWidth(++width);
+                        } else {
+                          clearInterval(intervalId);
+
+                        }
+                      }, 20);
+                    }, 2000);
+                  }
                   if (continuePage === 7) {
                     setLoadingContinue(true);
-                    
+
                     setTimeout(() => {
-                     
-                        e.preventDefault();
-                        setOptions('');
-                        setProgressWidth(0); 
                       router.push("/dashboard");
                     }, 2000);
-                  
+
                   } else {
                     setLoadingContinue(true);
                     setTimeout(() => {
