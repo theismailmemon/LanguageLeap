@@ -85,10 +85,10 @@ const Header = () => {
         {openMenuBarModal === true && (
           <div className='absolute right-3 top-[60px] sm:hidden block'>
             <div className='bg-white shadow w-56 rounded-xl border border-gray-200'>
-              <div className='border-gray-200 py-[10px] hover:bg-gray-200 cursor-pointer' onClick={() => { router.push('/login') }}>
+              <div className='border-gray-200 py-[10px] hover:bg-gray-200 rounded-t-xl cursor-pointer' onClick={() => { router.push('/login') }}>
                 <button className='px-6 text-gray-700 text-[17px] font-semibold'>Login</button>
               </div>
-              <div className='border-gray-200 py-[10px] hover:bg-gray-200 cursor-pointer' onClick={() => { router.push('/register') }}>
+              <div className='border-gray-200 py-[10px] hover:bg-gray-200 rounded-b-xl cursor-pointer' onClick={() => { router.push('/register') }}>
                 <button className='px-6 text-gray-700 text-[17px] font-semibold'>Signup</button>
               </div>
             </div>
