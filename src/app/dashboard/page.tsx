@@ -113,7 +113,17 @@ const Page = () => {
               />
             ) : (
               <div onClick={() => { setDropdownVisible(true); }} className="cursor-default flex items-center justify-between h-10 block w-full px-4 py-2 text-white bg-gray-700 rounded-md focus:outline-none">
+              <div className='flex items-center gap-3'>
+              <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-world" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                  <path d="M3.6 9h16.8" />
+                  <path d="M3.6 15h16.8" />
+                  <path d="M11.5 3a17 17 0 0 0 0 18" />
+                  <path d="M12.5 3a17 17 0 0 1 0 18" />
+                </svg>
                 {selectedLanguage ? dropdownItems.find(item => item.id === selectedLanguage)?.name || 'Search Language' : 'Search Language'}
+                </div>
 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" className="w-[18px] h-[18px]">
                   <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />

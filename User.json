@@ -1,6 +1,6 @@
 {
-    "firstName": "",
-    "lastName": "",
-    "email": "",
+    "firstName": "First",
+    "lastName": "Last",
+    "email": "example@gmail.com",
     "joinMonth":""
 }

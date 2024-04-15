@@ -29,7 +29,7 @@ const page = () => {
             <div className='my-10 mx-auto max-w-[1600px] sm:flex gap-10 sm:px-6 px-3'>
                 <div>
                     <div className='bg-gray-100 px-8 py-8 sm:w-80 rounded-2xl'>
-                        <h1 className='flex gap-1 text-4xl font-semibold'>
+                        <h1 className='flex gap-2 text-4xl font-semibold'>
                             <span> {userData.firstName}</span>
                             <span>{userData.lastName}</span>
                         </h1>
@@ -51,12 +51,6 @@ const page = () => {
                         My Profile
                     </h1>
                     <div className='mt-5'>
-                        <div>
-                            <h5 className='text-gray-500'>Email</h5>
-                            <div className='bg-white rounded-lg h-10 px-3 py-[10px] sm:max-w-80 mt-2'>
-                                {userData.email}
-                            </div>
-                        </div>
                         <div className='mt-5'>
                             <h5 className='text-gray-500'>First Name</h5>
                             <div className='bg-white rounded-lg h-10 px-3 py-[10px] sm:max-w-80 mt-2'>
@@ -67,6 +61,12 @@ const page = () => {
                             <h5 className='text-gray-500'>Last Name</h5>
                             <div className='bg-white rounded-lg h-10 px-3 py-[10px] sm:max-w-80 mt-2'>
                             {userData.lastName}
+                            </div>
+                        </div>
+                        <div className='mt-5'>
+                            <h5 className='text-gray-500'>Email</h5>
+                            <div className='bg-white rounded-lg h-10 px-3 py-[10px] sm:max-w-80 mt-2'>
+                                {userData.email}
                             </div>
                         </div>
                     </div>

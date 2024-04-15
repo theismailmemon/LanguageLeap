@@ -67,6 +67,7 @@ const Login = () => {
     const auth = getAuth();
     signInWithPopup(auth, new GoogleAuthProvider()).then(
       (result) => {
+        userData.email = result.user.email
         result.user.getIdToken().then(token => {
           // Access token ko localStorage mein save karna
           localStorage.setItem('token', token)
