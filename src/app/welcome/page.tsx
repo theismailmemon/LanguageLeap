@@ -696,7 +696,7 @@ const Page = () => {
                     />
                   ) : (
                     <div onClick={() => { setIsDropDown(true); }} className="cursor-default flex items-center justify-between h-10 block w-full px-4 py-2 text-white bg-gray-700 rounded-md focus:outline-none">
-                    {selectedLanguage ? dropdownItems.find(item => item.id === selectedLanguage)?.name || 'Search Language' : 'Search Language'}
+                    {selectedCompany ? dropdownItems.find(item => item.id === selectedCompany)?.name || 'Search Language' : 'Search Language'}
     
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" className="w-[18px] h-[18px]">
                       <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />

@@ -3,8 +3,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import ForgotPasswordHeader from '../../component/ForgotPasswordHeader';
 import { sendPasswordResetEmail } from 'firebase/auth';
-import { NotificationContainer, NotificationManager } from 'react-notifications';
-import 'react-notifications/lib/notifications.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { dataBase } from '../../../firebaseConfig';
 
 const Register = () => {
@@ -30,12 +30,13 @@ const Register = () => {
     setLoadingAnimation(true)
     sendPasswordResetEmail(dataBase, forgotEmail)
       .then(data => {
-        NotificationManager.success('Reset password sent successful!.', 'Success');
+        toast.success('Reset password sent successful!', { autoClose: 1500 });
+      
         setLoadingAnimation(false)
         setForgotEmail('')
         setResetPasswordSent(true)
       }).catch(err => {
-        NotificationManager.error('Firebase error', 'Error');
+        toast.error('Firebase error!', { autoClose: 1500 });
         setLoadingAnimation(false)
         console.log(err.code)
       })
@@ -81,7 +82,7 @@ const Register = () => {
 
   return (
     <div>
-      <NotificationContainer />
+     <ToastContainer />
       <div>
         <ForgotPasswordHeader />
         <div className='sm:mx-6 mx-4 my-6'>

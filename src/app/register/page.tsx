@@ -2,10 +2,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { dataBase } from '../../../firebaseConfig';
-import { NotificationContainer, NotificationManager } from 'react-notifications';
 import userData from '../../../User.json';
-import 'react-notifications/lib/notifications.css';
 import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword } from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const register = () => {
   const router = useRouter();
 
@@ -36,15 +36,18 @@ const register = () => {
         userData.lastName = lastName
 
         localStorage.setItem('token', (data.user as any).accessToken);
-        router.push('/welcome');
-        NotificationManager.success('Registration successful!.', 'Success');
+        toast.success("Registration successful", {
+          autoClose: 1500, // Set notification close time to 2 seconds
+          onClose: () => {
+            router.push('/welcome');
+          }
+        });
         setLoadingAnimation(false)
         console.log(data.user.displayName, "authData")
-
       })
       .catch((err) => {
         setLoadingAnimation(false)
-        NotificationManager.error(err.code, 'Error');
+        toast.error(err.code, { autoClose: 1500 });
         console.log(err.code)
       })
   }
@@ -58,16 +61,21 @@ const register = () => {
           // Access token ko localStorage mein save karna
           localStorage.setItem('token', token)
           // Ab yahan par apne aage ke karyavahi karein, jaise redirect ya notification
-          router.push('/welcome');
-          NotificationManager.success('You have successfully logged in!', 'Success');
+          toast.success("Registration successful", {
+            autoClose: 1500, // Set notification close time to 2 seconds
+            onClose: () => {
+              router.push('/welcome');
+            }
+          });
         }).catch(error => {
           console.error('Error retrieving ID token:', error);
-          NotificationManager.error('Error retrieving ID token', 'Error');
+          toast.error('Error retrieving ID token', { autoClose: 1500 });
         });
       }
     ).catch(error => {
       console.error('Error signing in with Google:', error);
-      NotificationManager.error('Error signing in with Google', 'Error');
+      toast.error('Error signing in with Google', { autoClose: 1500 });
+
     });
   };
   
@@ -167,7 +175,7 @@ const register = () => {
   }, []);
   return (
     <div className='sm:mx-6 mx-4 my-6'>
-      <NotificationContainer />
+           <ToastContainer />
       <div>
         <div className='flex sm:justify-between justify-end'>
           <span>

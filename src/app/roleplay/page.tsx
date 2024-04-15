@@ -71,7 +71,7 @@ function Roleplays() {
                             <div className='sm:py-8 py-6 sm:px-6 px-3 w-full'>
                                 <h2 className='sm:text-6xl text-center text-4xl text-white font-bold mt-8'>{currentRoleplay.type}</h2>
                                 <div className='sm:mt-20 mt-10 w-full'>
-                                    <h2 className='sm:text-4xl text-center text-2xl font-bold text-white mt-10'>Ordering a taxi:</h2>
+                                    <h2 className='sm:text-3xl text-center text-xl font-bold text-white mt-10'>{currentRoleplay.title}:</h2>
                                     <div className='mt-6 bg-black bg-opacity-40 rounded-lg px-3 sm:max-w-4xl sm:mx-auto sm:py-12 py-8'>
                                         <div className=''>
                                             <h2 className='text-white text-center sm:text-3xl text-xl font-semibold'>Setting</h2>
