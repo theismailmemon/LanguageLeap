@@ -40,293 +40,315 @@ const Page = () => {
       flagUrl:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png",
     },
-    // {
-    //   id: "3",
-    //   name: "Italiano",
-    //   learners: "72.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg",
-    // },
-    // {
-    //   id: "4",
-    //   name: "Nederlands",
-    //   learners: "29.4M",
-    //   flagUrl:
-    //     "https://www.netherlands-tourism.com/wp-content/uploads/2013/07/Flag-of-The-Netherlands3.png",
-    // },
-    // {
-    //   id: "5",
-    //   name: "Polski",
-    //   learners: "12.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Flag_of_Poland_%28normative%29.svg/2560px-Flag_of_Poland_%28normative%29.svg.png",
-    // },
-    // {
-    //   id: "6",
-    //   name: "Switzerland",
-    //   learners: "22.4M",
-    //   flagUrl:
-    //     "https://cdn.britannica.com/43/4543-004-C0D5C6F4/Flag-Switzerland.jpg",
-    // },
-    // {
-    //   id: "7",
-    //   name: "Alba",
-    //   learners: "13.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Flag_of_Scotland.svg/1200px-Flag_of_Scotland.svg.png",
-    // },
-    // {
-    //   id: "8",
-    //   name: "Spanish",
-    //   learners: "43.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png",
-    // },
-    // {
-    //   id: "9",
-    //   name: "Bahasa Indonesia",
-    //   learners: "31.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png",
-    // },
-    // {
-    //   id: "10",
-    //   name: "Italiano",
-    //   learners: "72.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg",
-    // },
-    // {
-    //   id: "11",
-    //   name: "Nederlands",
-    //   learners: "29.4M",
-    //   flagUrl:
-    //     "https://www.netherlands-tourism.com/wp-content/uploads/2013/07/Flag-of-The-Netherlands3.png",
-    // },
-    // {
-    //   id: "12",
-    //   name: "Polski",
-    //   learners: "12.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Flag_of_Poland_%28normative%29.svg/2560px-Flag_of_Poland_%28normative%29.svg.png",
-    // },
-    // {
-    //   id: "13",
-    //   name: "Switzerland",
-    //   learners: "22.4M",
-    //   flagUrl:
-    //     "https://cdn.britannica.com/43/4543-004-C0D5C6F4/Flag-Switzerland.jpg",
-    // },
-    // {
-    //   id: "14",
-    //   name: "Alba",
-    //   learners: "13.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Flag_of_Scotland.svg/1200px-Flag_of_Scotland.svg.png",
-    // },
-    // {
-    //   id: "15",
-    //   name: "Spanish",
-    //   learners: "43.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png",
-    // },
-    // {
-    //   id: "16",
-    //   name: "Bahasa Indonesia",
-    //   learners: "31.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png",
-    // },
-    // {
-    //   id: "17",
-    //   name: "Italiano",
-    //   learners: "72.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg",
-    // },
-    // {
-    //   id: "18",
-    //   name: "Nederlands",
-    //   learners: "29.4M",
-    //   flagUrl:
-    //     "https://www.netherlands-tourism.com/wp-content/uploads/2013/07/Flag-of-The-Netherlands3.png",
-    // },
-    // {
-    //   id: "19",
-    //   name: "Polski",
-    //   learners: "12.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Flag_of_Poland_%28normative%29.svg/2560px-Flag_of_Poland_%28normative%29.svg.png",
-    // },
-    // {
-    //   id: "20",
-    //   name: "Switzerland",
-    //   learners: "22.4M",
-    //   flagUrl:
-    //     "https://cdn.britannica.com/43/4543-004-C0D5C6F4/Flag-Switzerland.jpg",
-    // },
-    // {
-    //   id: "21",
-    //   name: "Spanish",
-    //   learners: "43.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png",
-    // },
-    // {
-    //   id: "22",
-    //   name: "Bahasa Indonesia",
-    //   learners: "31.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png",
-    // },
-    // {
-    //   id: "23",
-    //   name: "Italiano",
-    //   learners: "72.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg",
-    // },
-    // {
-    //   id: "24",
-    //   name: "Nederlands",
-    //   learners: "29.4M",
-    //   flagUrl:
-    //     "https://www.netherlands-tourism.com/wp-content/uploads/2013/07/Flag-of-The-Netherlands3.png",
-    // },
-    // {
-    //   id: "25",
-    //   name: "Polski",
-    //   learners: "12.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Flag_of_Poland_%28normative%29.svg/2560px-Flag_of_Poland_%28normative%29.svg.png",
-    // },
-    // {
-    //   id: "26",
-    //   name: "Switzerland",
-    //   learners: "22.4M",
-    //   flagUrl:
-    //     "https://cdn.britannica.com/43/4543-004-C0D5C6F4/Flag-Switzerland.jpg",
-    // },
-    // {
-    //   id: "27",
-    //   name: "Alba",
-    //   learners: "13.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Flag_of_Scotland.svg/1200px-Flag_of_Scotland.svg.png",
-    // },
-    // {
-    //   id: "28",
-    //   name: "Spanish",
-    //   learners: "43.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png",
-    // },
-    // {
-    //   id: "29",
-    //   name: "Switzerland",
-    //   learners: "22.4M",
-    //   flagUrl:
-    //     "https://cdn.britannica.com/43/4543-004-C0D5C6F4/Flag-Switzerland.jpg",
-    // },
-    // {
-    //   id: "30",
-    //   name: "Nederlands",
-    //   learners: "29.4M",
-    //   flagUrl:
-    //     "https://www.netherlands-tourism.com/wp-content/uploads/2013/07/Flag-of-The-Netherlands3.png",
-    // },
-    // {
-    //   id: "31",
-    //   name: "Spanish",
-    //   learners: "43.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png",
-    // },
-    // {
-    //   id: "32",
-    //   name: "Bahasa Indonesia",
-    //   learners: "31.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png",
-    // },
-    // {
-    //   id: "33",
-    //   name: "Italiano",
-    //   learners: "72.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg",
-    // },
-    // {
-    //   id: "34",
-    //   name: "Nederlands",
-    //   learners: "29.4M",
-    //   flagUrl:
-    //     "https://www.netherlands-tourism.com/wp-content/uploads/2013/07/Flag-of-The-Netherlands3.png",
-    // },
-    // {
-    //   id: "35",
-    //   name: "Polski",
-    //   learners: "12.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Flag_of_Poland_%28normative%29.svg/2560px-Flag_of_Poland_%28normative%29.svg.png",
-    // },
-    // {
-    //   id: "36",
-    //   name: "Switzerland",
-    //   learners: "22.4M",
-    //   flagUrl:
-    //     "https://cdn.britannica.com/43/4543-004-C0D5C6F4/Flag-Switzerland.jpg",
-    // },
-    // {
-    //   id: "37",
-    //   name: "Alba",
-    //   learners: "13.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Flag_of_Scotland.svg/1200px-Flag_of_Scotland.svg.png",
-    // },
-    // {
-    //   id: "38",
-    //   name: "Spanish",
-    //   learners: "43.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png",
-    // },
-    // {
-    //   id: "39",
-    //   name: "Bahasa Indonesia",
-    //   learners: "31.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png",
-    // },
-    // {
-    //   id: "40",
-    //   name: "Italiano",
-    //   learners: "72.4M",
-    //   flagUrl:
-    //     "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg",
-    // },
+    {
+      id: "3",
+      name: "Italiano",
+      learners: "72.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg",
+    },
+    {
+      id: "4",
+      name: "Nederlands",
+      learners: "29.4M",
+      flagUrl:
+        "https://www.netherlands-tourism.com/wp-content/uploads/2013/07/Flag-of-The-Netherlands3.png",
+    },
+    {
+      id: "5",
+      name: "Polski",
+      learners: "12.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Flag_of_Poland_%28normative%29.svg/2560px-Flag_of_Poland_%28normative%29.svg.png",
+    },
+    {
+      id: "6",
+      name: "Switzerland",
+      learners: "22.4M",
+      flagUrl:
+        "https://cdn.britannica.com/43/4543-004-C0D5C6F4/Flag-Switzerland.jpg",
+    },
+    {
+      id: "7",
+      name: "Alba",
+      learners: "13.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Flag_of_Scotland.svg/1200px-Flag_of_Scotland.svg.png",
+    },
+    {
+      id: "8",
+      name: "Spanish",
+      learners: "43.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png",
+    },
+    {
+      id: "9",
+      name: "Bahasa Indonesia",
+      learners: "31.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png",
+    },
+    {
+      id: "10",
+      name: "Italiano",
+      learners: "72.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg",
+    },
+    {
+      id: "11",
+      name: "Nederlands",
+      learners: "29.4M",
+      flagUrl:
+        "https://www.netherlands-tourism.com/wp-content/uploads/2013/07/Flag-of-The-Netherlands3.png",
+    },
+    {
+      id: "12",
+      name: "Polski",
+      learners: "12.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Flag_of_Poland_%28normative%29.svg/2560px-Flag_of_Poland_%28normative%29.svg.png",
+    },
+    {
+      id: "13",
+      name: "Switzerland",
+      learners: "22.4M",
+      flagUrl:
+        "https://cdn.britannica.com/43/4543-004-C0D5C6F4/Flag-Switzerland.jpg",
+    },
+    {
+      id: "14",
+      name: "Alba",
+      learners: "13.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Flag_of_Scotland.svg/1200px-Flag_of_Scotland.svg.png",
+    },
+    {
+      id: "15",
+      name: "Spanish",
+      learners: "43.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png",
+    },
+    {
+      id: "16",
+      name: "Bahasa Indonesia",
+      learners: "31.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png",
+    },
+    {
+      id: "17",
+      name: "Italiano",
+      learners: "72.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg",
+    },
+    {
+      id: "18",
+      name: "Nederlands",
+      learners: "29.4M",
+      flagUrl:
+        "https://www.netherlands-tourism.com/wp-content/uploads/2013/07/Flag-of-The-Netherlands3.png",
+    },
+    {
+      id: "19",
+      name: "Polski",
+      learners: "12.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Flag_of_Poland_%28normative%29.svg/2560px-Flag_of_Poland_%28normative%29.svg.png",
+    },
+    {
+      id: "20",
+      name: "Switzerland",
+      learners: "22.4M",
+      flagUrl:
+        "https://cdn.britannica.com/43/4543-004-C0D5C6F4/Flag-Switzerland.jpg",
+    },
+    {
+      id: "21",
+      name: "Spanish",
+      learners: "43.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png",
+    },
+    {
+      id: "22",
+      name: "Bahasa Indonesia",
+      learners: "31.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png",
+    },
+    {
+      id: "23",
+      name: "Italiano",
+      learners: "72.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg",
+    },
+    {
+      id: "24",
+      name: "Nederlands",
+      learners: "29.4M",
+      flagUrl:
+        "https://www.netherlands-tourism.com/wp-content/uploads/2013/07/Flag-of-The-Netherlands3.png",
+    },
+    {
+      id: "25",
+      name: "Polski",
+      learners: "12.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Flag_of_Poland_%28normative%29.svg/2560px-Flag_of_Poland_%28normative%29.svg.png",
+    },
+    {
+      id: "26",
+      name: "Switzerland",
+      learners: "22.4M",
+      flagUrl:
+        "https://cdn.britannica.com/43/4543-004-C0D5C6F4/Flag-Switzerland.jpg",
+    },
+    {
+      id: "27",
+      name: "Alba",
+      learners: "13.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Flag_of_Scotland.svg/1200px-Flag_of_Scotland.svg.png",
+    },
+    {
+      id: "28",
+      name: "Spanish",
+      learners: "43.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png",
+    },
+    {
+      id: "29",
+      name: "Switzerland",
+      learners: "22.4M",
+      flagUrl:
+        "https://cdn.britannica.com/43/4543-004-C0D5C6F4/Flag-Switzerland.jpg",
+    },
+    {
+      id: "30",
+      name: "Nederlands",
+      learners: "29.4M",
+      flagUrl:
+        "https://www.netherlands-tourism.com/wp-content/uploads/2013/07/Flag-of-The-Netherlands3.png",
+    },
+    {
+      id: "31",
+      name: "Spanish",
+      learners: "43.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png",
+    },
+    {
+      id: "32",
+      name: "Bahasa Indonesia",
+      learners: "31.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png",
+    },
+    {
+      id: "33",
+      name: "Italiano",
+      learners: "72.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg",
+    },
+    {
+      id: "34",
+      name: "Nederlands",
+      learners: "29.4M",
+      flagUrl:
+        "https://www.netherlands-tourism.com/wp-content/uploads/2013/07/Flag-of-The-Netherlands3.png",
+    },
+    {
+      id: "35",
+      name: "Polski",
+      learners: "12.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Flag_of_Poland_%28normative%29.svg/2560px-Flag_of_Poland_%28normative%29.svg.png",
+    },
+    {
+      id: "36",
+      name: "Switzerland",
+      learners: "22.4M",
+      flagUrl:
+        "https://cdn.britannica.com/43/4543-004-C0D5C6F4/Flag-Switzerland.jpg",
+    },
+    {
+      id: "37",
+      name: "Alba",
+      learners: "13.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Flag_of_Scotland.svg/1200px-Flag_of_Scotland.svg.png",
+    },
+    {
+      id: "38",
+      name: "Spanish",
+      learners: "43.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/en/thumb/4/41/Flag_of_India.svg/1200px-Flag_of_India.svg.png",
+    },
+    {
+      id: "39",
+      name: "Bahasa Indonesia",
+      learners: "31.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png",
+    },
+    {
+      id: "40",
+      name: "Italiano",
+      learners: "72.4M",
+      flagUrl:
+        "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg",
+    },
   ];
 
   const dropdownItems = [
-    {
-      name: "Russia",
-    },
-    {
-      name: "United Arab Emirates",
-    },
-    {
-      name: "Saudi Arabia",
-    },
-    {
-      name: "New Zealand",
-    },
-    {
-      name: "Canada",
-    },
-    {
-      name: "Japan",
-    },
+    { name: "English", id: 1 },
+    { name: "Hindi", id: 2 },
+    { name: "Urdu", id: 3 },
+    { name: "Spanish", id: 4 },
+    { name: "French", id: 5 },
+    { name: "Arabic", id: 6 },
+    { name: "Bengali", id: 7 },
+    { name: "Russian", id: 8 },
+    { name: "Portuguese", id: 9 },
+    { name: "German", id: 10 },
+    { name: "Japanese", id: 11 },
+    { name: "Chinese", id: 12 },
+    { name: "Korean", id: 13 },
+    { name: "Italian", id: 14 },
+    { name: "Dutch", id: 15 },
+    { name: "Turkish", id: 16 },
+    { name: "Swedish", id: 17 },
+    { name: "Polish", id: 18 },
+    { name: "Vietnamese", id: 19 },
+    { name: "Thai", id: 20 },
+    { name: "Greek", id: 21 },
+    { name: "Hebrew", id: 22 },
+    { name: "Czech", id: 23 },
+    { name: "Danish", id: 24 },
+    { name: "Finnish", id: 25 },
+    { name: "Hungarian", id: 26 },
+    { name: "Norwegian", id: 27 },
+    { name: "Romanian", id: 28 },
+    { name: "Indonesian", id: 29 },
+    { name: "Malay", id: 30 },
+    { name: "Filipino", id: 31 },
+    { name: "Slovak", id: 32 },
+    { name: "Maltese", id: 33 },
+    { name: "Icelandic", id: 34 },
+    { name: "Latvian", id: 35 },
+    { name: "Lithuanian", id: 36 },
+    { name: "Estonian", id: 37 },
+    { name: "Slovenian", id: 38 },
+    { name: "Croatian", id: 39 },
+    { name: "Serbian", id: 40 }
 
   ];
   const selectedLanguageMainName = languages.find(language => language.id === selectedLanguage)?.name;
@@ -558,7 +580,7 @@ const Page = () => {
                 )}
                 {continuePage === 4 && (
                   <h1 className="relative flex gap-2 w-[max-content] font-mono before:absolute before:inset-0 before:animate-typewriter before:bg-white after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-black">
-                   <span> Why are you learning</span>  <span className="font-semibold text-black">{selectedLanguageTooltipName}</span>?
+                    <span> Why are you learning</span>  <span className="font-semibold text-black">{selectedLanguageTooltipName}</span>?
                   </h1>
                 )}
                 {continuePage === 5 && (
@@ -659,37 +681,51 @@ const Page = () => {
           <div className="my-6 sm:mt-[282px] mt-[218px] mx-auto sm:max-w-6xl sm:px-5 px-4">
             <div className="sm:flex sm:justify-center sm:mt-20 my-8">
               <div className=" flex items-center justify-center">
-                <div className="relative group w-full" ref={dropdownRef}>
-                  <div className=' mt-2 rounded-md shadow-lg ring-1 sm:w-96 w-full ring-black ring-opacity-5 p-1 space-y-1'>
-                    {/* Search input */}
-                    {isDropDown === true ? (
-                      <input
-                        onChange={handleInputChange}
-                        value={searchTerm}
-                        onFocus={() => setIsDropDown(true)} // Show dropdown when input is focused
-                        className="block w-full px-4 py-2 text-gray-800 border rounded-md border-gray-200 focus:outline-none"
-                        type="text"
-                        placeholder="Search items"
-                        autoComplete="off"
-                      />
-                    ) : (
-                      <div onClick={() => { setIsDropDown(true); }} className="cursor-default h-10 block w-full px-4 py-2 text-gray-800 border rounded-md border-gray-200 focus:outline-none">
-                        {selectedCompany || 'Select Language'}
-                      </div>
-                    )}
-                    {/* Dropdown content goes here */}
-                    {isDropDown && dropdownItems
-                      .filter((item) => item.name.toLowerCase().includes(searchTerm))
-                      .map((item, index) => (
-                        <a
-                          key={index}
-                          onClick={() => handleThirdContinue(item.name)}
-                          className={`${selectedCompany === item.name ? 'bg-gray-200' : 'hover:bg-gray-200'} my-2 block px-4 mx-2 py-2 text-gray-700 cursor-pointer rounded-md`}
-                        >
-                          {item.name}
-                        </a>
-                      ))}
+
+                <div ref={dropdownRef} className={`mt-2 relative rounded-md shadow-lg sm:w-96 w-full ring-1 ring-black ring-opacity-5 space-y-2`}>
+                  {/* Search input */}
+                  {isDropDown === true ? (
+                    <input
+                      onChange={handleInputChange}
+                      value={searchTerm}
+                      onFocus={() => setIsDropDown(true)} // Show dropdown when input is focused
+                      className="block w-full px-4 py-2 h-10 placeholder:text-white rounded-md text-white bg-gray-700 focus:outline-none"
+                      type="text"
+                      placeholder="Search Language"
+                      autoComplete="off"
+                    />
+                  ) : (
+                    <div onClick={() => { setIsDropDown(true); }} className="cursor-default flex items-center justify-between h-10 block w-full px-4 py-2 text-white bg-gray-700 rounded-md focus:outline-none">
+                    {selectedLanguage ? dropdownItems.find(item => item.id === selectedLanguage)?.name || 'Search Language' : 'Search Language'}
+    
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" className="w-[18px] h-[18px]">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                    </svg>
+    
                   </div>
+                  )}
+                  {/* Dropdown content goes here */}
+
+                  {isDropDown && (
+                    <div className='absolute h-64 bg-white shadow border rounded-lg overflow-y-scroll w-full z-[100]'>
+                      <div className=''>
+                        {dropdownItems
+                          .filter((item) =>
+                            item.name.toLowerCase().includes(searchTerm.toLowerCase())
+                          )
+                          .map((item, index) => (
+                            <a
+                              key={index}
+                              onClick={() => handleThirdContinue(item.id)}
+                              className={`${selectedCompany === item.id ? 'bg-gray-200' : 'hover:bg-gray-200'} border-b block px-5 py-[10px] text-gray-700 cursor-pointer`}
+                            >
+                              {item.name}
+                            </a>
+                          ))}
+                      </div>
+                    </div>
+                  )}
+
                 </div>
               </div>
             </div>

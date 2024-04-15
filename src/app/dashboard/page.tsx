@@ -8,11 +8,11 @@ const Page = () => {
   const router = useRouter();
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedLanguage, setSelectedLanguage] = useState(null);
+  const [selectedLanguage, setSelectedLanguage] = useState(1);
   const dropdownRef = useRef(null);
 
-  const handleSelectLanguage = (input) => {
-    setSelectedLanguage(input);
+  const handleSelectLanguage = (id) => {
+    setSelectedLanguage(id);
     setDropdownVisible(false);
   };
 
@@ -42,24 +42,46 @@ const Page = () => {
   }, [router]);
 
   const dropdownItems = [
-    {
-      name: "Russia",
-    },
-    {
-      name: "United Arab Emirates",
-    },
-    {
-      name: "Saudi Arabia",
-    },
-    {
-      name: "New Zealand",
-    },
-    {
-      name: "Canada",
-    },
-    {
-      name: "Japan",
-    },
+    { name: "English", id: 1 },
+    { name: "Hindi", id: 2 },
+    { name: "Urdu", id: 3 },
+    { name: "Spanish", id: 4 },
+    { name: "French", id: 5 },
+    { name: "Arabic", id: 6 },
+    { name: "Bengali", id: 7 },
+    { name: "Russian", id: 8 },
+    { name: "Portuguese", id: 9 },
+    { name: "German", id: 10 },
+    { name: "Japanese", id: 11 },
+    { name: "Chinese", id: 12 },
+    { name: "Korean", id: 13 },
+    { name: "Italian", id: 14 },
+    { name: "Dutch", id: 15 },
+    { name: "Turkish", id: 16 },
+    { name: "Swedish", id: 17 },
+    { name: "Polish", id: 18 },
+    { name: "Vietnamese", id: 19 },
+    { name: "Thai", id: 20 },
+    { name: "Greek", id: 21 },
+    { name: "Hebrew", id: 22 },
+    { name: "Czech", id: 23 },
+    { name: "Danish", id: 24 },
+    { name: "Finnish", id: 25 },
+    { name: "Hungarian", id: 26 },
+    { name: "Norwegian", id: 27 },
+    { name: "Romanian", id: 28 },
+    { name: "Indonesian", id: 29 },
+    { name: "Malay", id: 30 },
+    { name: "Filipino", id: 31 },
+    { name: "Slovak", id: 32 },
+    { name: "Maltese", id: 33 },
+    { name: "Icelandic", id: 34 },
+    { name: "Latvian", id: 35 },
+    { name: "Lithuanian", id: 36 },
+    { name: "Estonian", id: 37 },
+    { name: "Slovenian", id: 38 },
+    { name: "Croatian", id: 39 },
+    { name: "Serbian", id: 40 }
   ];
 
   return (
@@ -75,28 +97,34 @@ const Page = () => {
         </div>
       </header>
       <div className='my-8 sm:max-w-5xl sm:px-6 px-4 mx-auto'>
-        <h4 className='text-center'>Choose your target language</h4>
-        <div className='flex justify-center mt-2'>
-          <div ref={dropdownRef} className={`mt-2 relative rounded-md shadow-lg sm:w-96 w-full ring-1 ring-black ring-opacity-5 space-y-1`}>
+        <h4 className='text-center text-sm'>Choose your target language</h4>
+        <div className='flex justify-center mt-1'>
+          <div ref={dropdownRef} className={`mt-2 relative rounded-md shadow-lg sm:w-96 w-full ring-1 ring-black ring-opacity-5 space-y-2`}>
             {/* Search input */}
             {dropdownVisible === true ? (
               <input
                 onChange={handleInputChange}
                 value={searchTerm}
                 onFocus={() => setDropdownVisible(true)} // Show dropdown when input is focused
-                className="block w-full px-4 py-2 h-10 text-gray-800 border rounded-md border-gray-200 focus:outline-none"
+                className="block w-full px-4 py-2 h-10 placeholder:text-white rounded-md text-white bg-gray-700 focus:outline-none"
                 type="text"
-                placeholder="Search items"
+                placeholder="Search Language"
                 autoComplete="off"
               />
             ) : (
-              <div onClick={() => { setDropdownVisible(true); }} className="cursor-default h-10 block w-full px-4 py-2 text-gray-800 border rounded-md border-gray-200 focus:outline-none">
-                {selectedLanguage || 'Select Language'}
+              <div onClick={() => { setDropdownVisible(true); }} className="cursor-default flex items-center justify-between h-10 block w-full px-4 py-2 text-white bg-gray-700 rounded-md focus:outline-none">
+                {selectedLanguage ? dropdownItems.find(item => item.id === selectedLanguage)?.name || 'Search Language' : 'Search Language'}
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" className="w-[18px] h-[18px]">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+
               </div>
             )}
             {/* Dropdown content goes here */}
-            <div className=' absolute bg-white w-full z-[100]'>
-              {dropdownVisible && (
+
+            {dropdownVisible && (
+              <div className='absolute h-64 bg-white shadow border rounded-lg overflow-y-scroll w-full z-[100]'>
                 <div className=''>
                   {dropdownItems
                     .filter((item) =>
@@ -105,15 +133,16 @@ const Page = () => {
                     .map((item, index) => (
                       <a
                         key={index}
-                        onClick={() => handleSelectLanguage(item.name)}
-                        className={`${selectedLanguage === item.name ? 'bg-gray-200' : 'hover:bg-gray-200'} my-2 block px-4 mx-2 py-2 text-gray-700 cursor-pointer rounded-md`}
+                        onClick={() => handleSelectLanguage(item.id)}
+                        className={`${selectedLanguage === item.id ? 'bg-gray-200' : 'hover:bg-gray-200'} border-b block px-5 py-[10px] text-gray-700 cursor-pointer`}
                       >
                         {item.name}
                       </a>
                     ))}
                 </div>
-              )}
-            </div>
+              </div>
+            )}
+
           </div>
         </div>
 
