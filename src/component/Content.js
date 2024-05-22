@@ -14,16 +14,7 @@ const Content = () => {
   const [mainLoadingAnimation, setMainLoadingAnimation] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      setMainLoadingAnimation(true)
-      setTimeout(() => {
-        setMainLoadingAnimation(false)
-        router.push('/dashboard');
-      }, 1000); // Delay redirection by 3 seconds
-    }
-  }, [router]);
+
 
   const features = [
     {

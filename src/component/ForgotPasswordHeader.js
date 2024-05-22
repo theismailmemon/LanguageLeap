@@ -34,7 +34,7 @@ const Header = () => {
     
         <div>
           <div className=''>
-            <button onClick={handleLogin} className='transition ease-in-out duration-300 button bg-white hover:opacity-95 text-gray-700 text-center sm:text-[14px] text-[12px] sm:rounded-[14px] rounded-[12px] border-sky-300 sm:h-[42px] h-[38px] sm:px-4 px-3 font-bold'>
+            <button onClick={handleLogin} className='transition ease-in-out duration-300 bg-white hover:opacity-95 text-gray-700 text-center sm:text-[14px] text-[12px] sm:rounded-[14px] rounded-[12px] border-sky-300 sm:h-[42px] h-[38px] sm:px-4 px-3 font-bold'>
               LOGIN
             </button>
 

@@ -4,7 +4,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { dataBase } from '../../../firebaseConfig';
-import userData from '../../../User.json';
 import { getAuth, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from 'firebase/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -38,6 +37,7 @@ const Login = () => {
       }, 1000); // Delay redirection by 3 seconds
     }
   }, [router]);
+
   const handleSignIn = (event) => {
     event.preventDefault(); // Correct usage of preventDefault
 
@@ -48,12 +48,32 @@ const Login = () => {
     setLoadingAnimation(true);
     signInWithEmailAndPassword(dataBase, loginemail, loginpassword)
       .then((data) => {
-        userData.email = data.user.email;
+        // Fetch additional user information from the database
+        const { displayName, email, metadata } = data.user;
+
+        // Function to format date to YYYY-MM-DD format
+        const formatDate = (date) => {
+          const year = date.getFullYear();
+          const month = String(date.getMonth() + 1).padStart(2, '0');
+          const day = String(date.getDate()).padStart(2, '0');
+          return `${year}-${month}-${day}`;
+        };
+
+        // Format creation date to YYYY-MM-DD format
+        const formattedDate = formatDate(new Date(metadata.creationTime));
+
+        // Save user information to localStorage
+        localStorage.setItem('userInfo', JSON.stringify({
+          firstName: displayName,
+          email: email,
+          createdAt: formattedDate // Save the formatted creation date
+        }));
+
         localStorage.setItem('token', (data.user as any).accessToken);
         toast.success("You have successfully logged in!", {
           autoClose: 1500, // Set notification close time to 2 seconds
           onClose: () => {
-            router.push('/dashboard');
+            router.push('/welcome');
           }
         });
         setLoadingAnimation(false);
@@ -61,43 +81,68 @@ const Login = () => {
         setLoginInformation(data);
       })
       .catch((err) => {
-        if (err.code === 'auth/invalid-credential') {
-          toast.error("User Account not found!", { autoClose: 1500 });
-        } else {
+
           toast.error(err.code, { autoClose: 1500 });
-        }
+       
         setLoadingAnimation(false);
       });
   };
 
 
 
+
+
+
+
   const handleWithGoogle = () => {
     const auth = getAuth();
-    signInWithPopup(auth, new GoogleAuthProvider()).then(
-      (result) => {
-        userData.email = result.user.email
-        result.user.getIdToken().then(token => {
-          // Access token ko localStorage mein save karna
-          localStorage.setItem('token', token)
-          // Ab yahan par apne aage ke karyavahi karein, jaise redirect ya notification
-          toast.success("You have successfully logged in!", {
-            autoClose: 1500, // Set notification close time to 2 seconds
-            onClose: () => {
-              router.push('/dashboard');
-            }
+    signInWithPopup(auth, new GoogleAuthProvider())
+      .then((result) => {
+        // Get user information
+        const { displayName, email, metadata } = result.user;
+        console.log(result.user)
+
+        // Function to format date to YYYY-MM-DD format
+        const formatDate = (date) => {
+          const year = date.getFullYear();
+          const month = String(date.getMonth() + 1).padStart(2, '0');
+          const day = String(date.getDate()).padStart(2, '0');
+          return `${year}-${month}-${day}`;
+        };
+
+        // Format creation date to YYYY-MM-DD format
+        const formattedDate = formatDate(new Date(metadata.creationTime));
+
+        // Save user information to localStorage
+        localStorage.setItem('userInfo', JSON.stringify({
+          firstName: displayName,
+          lastName: '',
+          email: email,
+          createdAt: formattedDate // Save the formatted creation date
+        }));
+
+        // Get and save user token to localStorage
+        result.user.getIdToken()
+          .then(token => {
+            localStorage.setItem('token', token);
+
+            // Perform further actions like redirection or showing notifications
+            toast.success("Registration successful", {
+              autoClose: 1500, // Set notification close time to 2 seconds
+              onClose: () => {
+                router.push('/welcome');
+              }
+            });
+          })
+          .catch(error => {
+            console.error('Error retrieving ID token:', error);
+            toast.error('Error retrieving ID token', { autoClose: 1500 });
           });
-
-        }).catch(error => {
-          console.error('Error retrieving ID token:', error);
-          toast.error('Error retrieving ID token', { autoClose: 1500 });
-        });
-      }
-    ).catch(error => {
-      console.error('Error signing in with Google:', error);
-      toast.error('Error signing in with Google', { autoClose: 1500 });
-
-    });
+      })
+      .catch(error => {
+        console.error('Error signing in with Google:', error);
+        toast.error('Error signing in with Google', { autoClose: 1500 });
+      });
   };
 
 

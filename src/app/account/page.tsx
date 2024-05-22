@@ -1,21 +1,38 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import { dataBase } from "../../../firebaseConfig";
-import userData from '../../../User.json';
+
 
 import { signOut } from "firebase/auth";
 import { useRouter } from 'next/navigation';
 const page = () => {
-
     const router = useRouter();
+
+    const [userInfo, setUserInfo] = useState(null);
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            router.push('/login');
+        }
+    }, [router]);
+    useEffect(() => {
+        // Retrieve user info from localStorage
+        const storedUserInfo = localStorage.getItem('userInfo');
+        if (storedUserInfo) {
+            setUserInfo(JSON.parse(storedUserInfo));
+        }
+    }, []);
     const handleLogout = () => {
-        signOut(dataBase).then(val => {
-            localStorage.removeItem('token');
-            router.push("/login");
-        })
+        // Clear user info from localStorage
+        localStorage.removeItem('userInfo');
+        // Clear token from localStorage
+        localStorage.removeItem('token');
+        // Redirect to the login page
+        router.push("/login");
     }
     return (
         <div>
+
             <header className='bg-gray-800 flex items-center h-[80px] w-full sm:px-6 px-3'>
                 <div className='flex justify-start'>
                     <svg onClick={() => { router.push('/dashboard') }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" className="sm:w-7 w-6 sm:h-7 h-6 text-white cursor-pointer hover:opacity-80 transition ease-in-out duration-300">
@@ -28,10 +45,17 @@ const page = () => {
             </header>
             <div className='my-10 mx-auto max-w-[1600px] sm:flex gap-10 sm:px-6 px-3'>
                 <div>
+                    <div>
+
+                    </div>
                     <div className='bg-gray-100 px-8 py-8 sm:w-80 rounded-2xl'>
                         <h1 className='flex gap-2 text-4xl font-semibold'>
-                            <span> {userData.firstName}</span>
-                            <span>{userData.lastName}</span>
+                            <span>{userInfo?.firstName}</span>
+                            <span>{userInfo?.lastName}</span>
+                        </h1>
+                        <h1 className='flex text-sm text-gray-600 gap-2 pt-3'>
+                            <span>Joined:</span>
+                            <span>{userInfo?.createdAt}</span>
                         </h1>
                         {/* <h4 className='pt-8'>Joined April 2024</h4> */}
                         <div className='flex items-center gap-4 mt-5'>
@@ -54,22 +78,24 @@ const page = () => {
                         <div className='mt-5'>
                             <h5 className='text-gray-500'>First Name</h5>
                             <div className='bg-white rounded-lg h-10 px-3 py-[10px] sm:max-w-80 mt-2'>
-                            {userData.firstName}
+                                {userInfo?.firstName}
                             </div>
                         </div>
                         <div className='mt-5'>
                             <h5 className='text-gray-500'>Last Name</h5>
                             <div className='bg-white rounded-lg h-10 px-3 py-[10px] sm:max-w-80 mt-2'>
-                            {userData.lastName}
+                                {userInfo?.lastName}
                             </div>
                         </div>
                         <div className='mt-5'>
                             <h5 className='text-gray-500'>Email</h5>
                             <div className='bg-white rounded-lg h-10 px-3 py-[10px] sm:max-w-80 mt-2'>
-                                {userData.email}
+                                {userInfo?.email}
                             </div>
                         </div>
+                      
                     </div>
+
                 </div>
                 <div className='sm:hidden block'>
                     <div onClick={handleLogout} className='bg-gray-100 hover:bg-white transition ease-in-out duration-500 cursor-pointer text-red-500 text-xl px-8 py-8 sm:w-80 rounded-2xl mt-6'>
