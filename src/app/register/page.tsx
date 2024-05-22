@@ -34,7 +34,7 @@ const register = () => {
     createUserWithEmailAndPassword(dataBase, registerEmail, registerPassword)
       .then((data) => {
         // Store user token in localStorage
-        localStorage.setItem('token', data.user.accessToken);
+        localStorage.setItem('token', (data.user as any).accessToken);
         
         // Function to format date to YYYY-MM-DD format
         const formatDate = (date) => {
