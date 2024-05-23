@@ -85,7 +85,7 @@ const Content = () => {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj49B52Tba7q2_rS4XlkRmktIhZkTXhlT1RmmIL_31HA&s",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj49B52Tba7q2_rS4XlkRmktIhZkTXhlT1RmmIL_31HA&s"
       ],
-      text: "I’ve been using Talkpal AI for a week now and I’m genuinely impressed with its effectiveness in helping me learn German. Definitely great app to learn language with so much fun. Impressed with characters option. So fun to chat with mythological heroes.",
+      text: "I’ve been using LanguageLeap AI for a week now and I’m genuinely impressed with its effectiveness in helping me learn German. Definitely great app to learn language with so much fun. Impressed with characters option. So fun to chat with mythological heroes.",
       author: "Tatiane",
       source: "Trustpilot"
     },
@@ -97,7 +97,7 @@ const Content = () => {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj49B52Tba7q2_rS4XlkRmktIhZkTXhlT1RmmIL_31HA&s",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj49B52Tba7q2_rS4XlkRmktIhZkTXhlT1RmmIL_31HA&s"
       ],
-      text: "My parents are learning English by themselves; currently using Google Translate and some basic English book. They can read some small words now but as usual they are struggling with speaking. I’ve been looking for a product that help them speak and I’m glad I found Talkpal. I tried myself and it’s fun and the Ai seems to be very intuitive. Can’t wait to see my parents’ improvement!",
+      text: "My parents are learning English by themselves; currently using Google Translate and some basic English book. They can read some small words now but as usual they are struggling with speaking. I’ve been looking for a product that help them speak and I’m glad I found LanguageLeap. I tried myself and it’s fun and the Ai seems to be very intuitive. Can’t wait to see my parents’ improvement!",
       author: "Tatiane",
       source: "Trustpilot"
     },
@@ -109,7 +109,7 @@ const Content = () => {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj49B52Tba7q2_rS4XlkRmktIhZkTXhlT1RmmIL_31HA&s",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj49B52Tba7q2_rS4XlkRmktIhZkTXhlT1RmmIL_31HA&s"
       ],
-      text: "It’s mind blowing that this is AI-generated. I can practice several languages on a daily basis whenever I can/want. I had lost a big chunk of my knowledge over the years but I can feel that I’m already getting better again through Talkpal. Learning also new facts about history etc. is a bonus. I definitely recommend to try it out.",
+      text: "It’s mind blowing that this is AI-generated. I can practice several languages on a daily basis whenever I can/want. I had lost a big chunk of my knowledge over the years but I can feel that I’m already getting better again through LanguageLeap. Learning also new facts about history etc. is a bonus. I definitely recommend to try it out.",
       author: "Tatiane",
       source: "Trustpilot"
     },
@@ -121,7 +121,7 @@ const Content = () => {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj49B52Tba7q2_rS4XlkRmktIhZkTXhlT1RmmIL_31HA&s",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj49B52Tba7q2_rS4XlkRmktIhZkTXhlT1RmmIL_31HA&s"
       ],
-      text: "Loving this app!! Talkpal is unique from the more traditional language learning apps and gives you a much more realistic setting to practice your vocab and grammar skills. A must-have for anyone learning a new language.",
+      text: "Loving this app!! LanguageLeap is unique from the more traditional language learning apps and gives you a much more realistic setting to practice your vocab and grammar skills. A must-have for anyone learning a new language.",
       author: "Tatiane",
       source: "Trustpilot"
     }
@@ -129,20 +129,20 @@ const Content = () => {
 
   const faqs = [
     {
-      question: 'How is Talkpal different from other language learning apps?',
-      answer: 'How is Talkpal different from other language learning apps?',
+      question: 'How is LanguageLeap different from other language learning apps?',
+      answer: 'How is LanguageLeap different from other language learning apps?',
     },
     {
-      question: 'What subscription options does Talkpal offer?',
-      answer: 'How is Talkpal different from other language learning apps?',
+      question: 'What subscription options does LanguageLeap offer?',
+      answer: 'How is LanguageLeap different from other language learning apps?',
     },
     {
-      question: 'Can I cancel my Talkpal Premium subscription anytime?',
-      answer: 'How is Talkpal different from other language learning apps?',
+      question: 'Can I cancel my LanguageLeap Premium subscription anytime?',
+      answer: 'How is LanguageLeap different from other language learning apps?',
     },
     {
       question: 'Do you offer subscription options for educational institutions?',
-      answer: 'How is Talkpal different from other language learning apps?',
+      answer: 'How is LanguageLeap different from other language learning apps?',
     },
   ];
 

@@ -17,8 +17,8 @@ const Footer = () => {
                         <a href="" className="block mb-2 hover:opacity-90">Blog</a>
                         <a href="" className="block mb-2 hover:opacity-90">Press</a>
                         <a href="" className="block mb-2 hover:opacity-90">Contact</a>
-                        <a href="" className="block mb-2 hover:opacity-90">Talkpal for Business</a>
-                        <a href="" className="block hover:opacity-90">Talkpal for Education</a>
+                        <a href="" className="block mb-2 hover:opacity-90">LanguageLeap for Business</a>
+                        <a href="" className="block hover:opacity-90">LanguageLeap for Education</a>
                         <a href="" className="block hover:opacity-90">Privacy Policy</a>
                         <a href="" className="block hover:opacity-90">Terms and Conditions</a>
                         <a href="" className="block hover:opacity-90">End User License Agreement</a>

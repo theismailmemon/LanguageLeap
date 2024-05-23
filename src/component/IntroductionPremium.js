@@ -4,7 +4,7 @@ const IntroductionPremium = ({ introductionPremiumes }) => {
     return (
         <div>
             <div>
-                <h2 className="text-white sm:text-5xl text-2xl text-center font-bold">INTRODUCING TALKPAL PREMIUM</h2>
+                <h2 className="text-white sm:text-5xl text-2xl text-center font-bold">INTRODUCING LANGUAGELEAP PREMIUM</h2>
                 <h2 className="text-white sm:text-base text-base text-center pt-4 font-bold">AVAILABLE IN 57+ LANGUAGES</h2>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-10 sm:gap-8 mt-10">

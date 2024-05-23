@@ -26,14 +26,14 @@ const FAQ = ({ faqs }) => {
                             <div className="space-y-4">
                                 {faqs.map((faq, index) => (
                                     <div
-                                        onClick={() => {
-                                            toggleAnswer(index);
-                                            toggleRotation(index);
-                                        }}
+                                   
                                         key={index}
                                         className="w-full cursor-pointer py-3 px-6 bg-white border border-gray-300 rounded"
                                     >
-                                        <div className="flex items-center justify-between cursor-pointer">
+                                        <div className="flex items-center justify-between cursor-pointer"     onClick={() => {
+                                            toggleAnswer(index);
+                                            toggleRotation(index);
+                                        }}>
                                             <span className="text-xl">{faq.question}</span>
                                             <span className="">
                                                 <div
@@ -54,7 +54,9 @@ const FAQ = ({ faqs }) => {
                                             </span>
                                         </div>
                                         {openIndex === index && (
-                                            <p className="text-lg mt-4">{faq.answer}</p>
+                                        <div className="">
+                                               <p className="text-lg mt-4">{faq.answer}</p>
+                                        </div>
                                         )}
                                     </div>
                                 ))}

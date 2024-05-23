@@ -6,7 +6,7 @@ const LeapLanguage = ({ languageButton }) => {
             <div className="sm:flex sm:gap-5 sm:justify-between sm:items-center">
                 <div className="sm:w-[63%]">
                     <h1 className="sm:text-[65px] text-3xl text-black font-bold sm:leading-[68px]">The Most Efficient Way to Learn a Language</h1>
-                    <p className="pt-6 sm:text-[21px] text-gray-600">Talkpal is a GPT-powered AI language tutor. Chat about unlimited amount of interesting topics either by writing or speaking while receiving messages with realistic voice.</p>
+                    <p className="pt-6 sm:text-[21px] text-gray-600">LanguageLeap is a GPT-powered AI language tutor. Chat about unlimited amount of interesting topics either by writing or speaking while receiving messages with realistic voice.</p>
                     <div className="mt-7">
                         <h4 className="text-black text-2xl font-medium">You will practice:</h4>
                         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-3 mt-4">
