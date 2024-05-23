@@ -7,11 +7,11 @@ const Page = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const progressPercentage = (continuePage - 1) * (100 / 6);
   const [loadingContinue, setLoadingContinue] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState(null);
-  const [selectedCompany, setSelectedCompany] = useState(null);
-  const [selectedNetwrok, setSelectedNetwrok] = useState(null);
-  const [selectedHear, setSelectedHear] = useState(null);
-  const [selectedDailySpentTime, setSelectedDailySpentTime] = useState(null);
+  const [learnLanguage, setLearnLanguage] = useState(null);
+  const [nativeLanguage, setNativeLanguage] = useState(null);
+  const [languageKnow, setLanguageKnow] = useState(null);
+  const [whyLearnLanguage, setwhyLearnLanguage] = useState(null);
+  const [spendTime, setSpendTime] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [isDropDown, setIsDropDown] = useState(true);
   const dropdownRef = useRef(null);
@@ -19,12 +19,7 @@ const Page = () => {
 
 
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      router.push('/login');
-    }
-  }, [router]);
+
   const languages = [
     {
       id: "1",
@@ -351,13 +346,13 @@ const Page = () => {
     { name: "Serbian", id: 40 }
 
   ];
-  const selectedLanguageMainName = languages.find(language => language.id === selectedLanguage)?.name;
+  const learnLanguageMainName = languages.find(language => language.name === learnLanguage)?.name;
 
   const network = [
     {
       id: 1,
       src: "https://d35aaqx5ub95lt.cloudfront.net/images/funboarding/f45d9d583cea02515c7140fd7e1a64cd.svg",
-      name: `I’m new to ${selectedLanguageMainName}`,
+      name: `I’m new to ${learnLanguageMainName}`,
     },
     {
       id: 2,
@@ -432,6 +427,14 @@ const Page = () => {
     });
   };
 
+  useEffect(() => {
+    const welcomeInfomation = localStorage.getItem('welcomeInfomation');
+    if (welcomeInfomation) {
+      router.push('/dashboard');
+    }
+  }, [router]);
+
+
   const allowNotification = () => {
     if (Notification.permission !== "granted") {
       Notification.requestPermission().then((permission) => {
@@ -456,7 +459,7 @@ const Page = () => {
   };
 
   const handleThirdContinue = (name) => {
-    setSelectedCompany(name);
+    setNativeLanguage(name);
     setIsDropDown(false); // Close the dropdown after selection
   };
 
@@ -478,17 +481,17 @@ const Page = () => {
   }, []);
 
   const handleSecondContinue = (languageId) => {
-    setSelectedLanguage(languageId);
+    setLearnLanguage(languageId);
   };
 
   const handleForthContinue = (networkId) => {
-    setSelectedNetwrok(networkId);
+    setLanguageKnow(networkId);
   };
   const handleFifthContinue = (hearId) => {
-    setSelectedHear(hearId);
+    setwhyLearnLanguage(hearId);
   };
   const handleContinue = (startingSpentTime) => {
-    setSelectedDailySpentTime(startingSpentTime);
+    setSpendTime(startingSpentTime);
   };
 
   useEffect(() => {
@@ -508,7 +511,7 @@ const Page = () => {
     };
   }, []);
 
-  const selectedLanguageTooltipName = languages.find(language => language.id === selectedLanguage)?.name;
+  const learnLanguageTooltipName = languages.find(language => language.name === learnLanguage)?.name;
   return (
     <>
 
@@ -574,13 +577,13 @@ const Page = () => {
                 {continuePage === 3 && (
                   <h1 className="relative flex gap-2 w-[max-content] font-mono before:absolute before:inset-0 before:animate-typewriter before:bg-white after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-black">
                     <span>How much</span>
-                    <span className="font-semibold text-black">{selectedLanguageTooltipName}</span>
+                    <span className="font-semibold text-black">{learnLanguageTooltipName}</span>
                     <span>do you know?</span>
                   </h1>
                 )}
                 {continuePage === 4 && (
                   <h1 className="relative flex gap-2 w-[max-content] font-mono before:absolute before:inset-0 before:animate-typewriter before:bg-white after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-black">
-                    <span> Why are you learning</span>  <span className="font-semibold text-black">{selectedLanguageTooltipName}</span>?
+                    <span> Why are you learning</span>  <span className="font-semibold text-black">{learnLanguageTooltipName}</span>?
                   </h1>
                 )}
                 {continuePage === 5 && (
@@ -607,11 +610,11 @@ const Page = () => {
                 {languages.map((language, index) => (
                   <div
                     key={index}
-                    className={`cursor-pointer rounded-[16px] border-2 py-12 ${selectedLanguage === language.id
+                    className={`cursor-pointer rounded-[16px] border-2 py-12 ${learnLanguage === language.name
                       ? "bg-sky-100 border-sky-300"
                       : "border-gray-200 hover:bg-gray-100"
                       }`}
-                    onClick={() => handleSecondContinue(language.id)}
+                    onClick={() => handleSecondContinue(language.name)}
                   >
                     <img
                       src={language.flagUrl}
@@ -620,7 +623,7 @@ const Page = () => {
                     />
                     <div className="pt-[13px]">
                       <h2
-                        className={`${selectedLanguage === language.id
+                        className={`${learnLanguage === language.name
                           ? "text-sky-500"
                           : "text-gray-600"
                           } text-center font-semibold`}
@@ -630,7 +633,7 @@ const Page = () => {
                     </div>
                     <div className="pt-[2px]">
                       <h4
-                        className={`${selectedLanguage === language.id
+                        className={`${learnLanguage === language.name
                           ? "text-sky-500"
                           : "text-gray-600"
                           } text-center  font-medium`}
@@ -648,11 +651,11 @@ const Page = () => {
                   {languages.map((language, index) => (
                     <div
                       key={language.id}
-                      className={`px-[18px] py-[8.7px] cursor-pointer flex items-center gap-5 rounded-[14px] border-2 w-full ${selectedLanguage === language.id
+                      className={`px-[18px] py-[8.7px] cursor-pointer flex items-center gap-5 rounded-[14px] border-2 w-full ${learnLanguage === language.name
                         ? "border-sky-300 bg-sky-100"
                         : "border-gray-200 hover:bg-gray-100"
                         }`}
-                      onClick={() => handleSecondContinue(language.id)}
+                      onClick={() => handleSecondContinue(language.name)}
                     >
                       <img
                         src={language.flagUrl}
@@ -660,7 +663,7 @@ const Page = () => {
                         className="w-[48px] h-[38px] rounded-lg object-cover shadow"
                       />
                       <h1
-                        className={`${selectedLanguage === language.id
+                        className={`${learnLanguage === language.name
                           ? "text-sky-500"
                           : "text-gray-600"
                           } text-[17px] font-bold`}
@@ -696,13 +699,13 @@ const Page = () => {
                     />
                   ) : (
                     <div onClick={() => { setIsDropDown(true); }} className="cursor-default flex items-center justify-between h-10 block w-full px-4 py-2 text-white bg-gray-700 rounded-md focus:outline-none">
-                    {selectedCompany ? dropdownItems.find(item => item.id === selectedCompany)?.name || 'Search Language' : 'Search Language'}
-    
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" className="w-[18px] h-[18px]">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                    </svg>
-    
-                  </div>
+                      {nativeLanguage ? dropdownItems.find(item => item.name === nativeLanguage)?.name || 'Search Language' : 'Search Language'}
+
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" className="w-[18px] h-[18px]">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                      </svg>
+
+                    </div>
                   )}
                   {/* Dropdown content goes here */}
 
@@ -716,8 +719,8 @@ const Page = () => {
                           .map((item, index) => (
                             <a
                               key={index}
-                              onClick={() => handleThirdContinue(item.id)}
-                              className={`${selectedCompany === item.id ? 'bg-gray-200' : 'hover:bg-gray-200'} border-b block px-5 py-[10px] text-gray-700 cursor-pointer`}
+                              onClick={() => handleThirdContinue(item.name)}
+                              className={`${nativeLanguage === item.name ? 'bg-gray-200' : 'hover:bg-gray-200'} border-b block px-5 py-[10px] text-gray-700 cursor-pointer`}
                             >
                               {item.name}
                             </a>
@@ -741,15 +744,15 @@ const Page = () => {
                 {network.map((network, index) => (
                   <div
                     key={network.id}
-                    className={`sm:px-[18px] sm:py-[13px] px-[20px] py-[8.7px] cursor-pointer flex items-center gap-5 rounded-[14px] border-2 sm:w-[530px] w-full ${selectedNetwrok === network.id
+                    className={`sm:px-[18px] sm:py-[13px] px-[20px] py-[8.7px] cursor-pointer flex items-center gap-5 rounded-[14px] border-2 sm:w-[530px] w-full ${languageKnow === network.name
                       ? "border-sky-300 bg-sky-100"
                       : "border-gray-200 hover:bg-gray-100"
                       }`}
-                    onClick={() => handleForthContinue(network.id)}
+                    onClick={() => handleForthContinue(network.name)}
                   >
                     <img src={network.src} alt="" />
                     <h1
-                      className={`${selectedNetwrok === network.id
+                      className={`${languageKnow === network.name
                         ? "text-sky-500"
                         : "text-gray-600"
                         } text-[17px] font-bold`}
@@ -772,15 +775,15 @@ const Page = () => {
                 {hear.map((hear, index) => (
                   <div
                     key={hear.id}
-                    className={`sm:px-[18px] sm:py-[20px] px-[18px] py-[8.7px] cursor-pointer flex items-center gap-5 rounded-[14px] border-2 w-full sm:max-w-[390px] w-full ${selectedHear === hear.id
+                    className={`sm:px-[18px] sm:py-[20px] px-[18px] py-[8.7px] cursor-pointer flex items-center gap-5 rounded-[14px] border-2 w-full sm:max-w-[390px] w-full ${whyLearnLanguage === hear.name
                       ? "border-sky-300 bg-sky-100"
                       : "border-gray-200 hover:bg-gray-100"
                       }`}
-                    onClick={() => handleFifthContinue(hear.id)}
+                    onClick={() => handleFifthContinue(hear.name)}
                   >
                     <img src={hear.src} alt="" />
                     <h1
-                      className={`${selectedHear === hear.id
+                      className={`${whyLearnLanguage === hear.name
                         ? "text-sky-500"
                         : "text-gray-600"
                         } text-[17px] font-bold`}
@@ -890,14 +893,14 @@ const Page = () => {
                 {dailySpentTime.map((dailySpentTime, index) => (
                   <div
                     key={dailySpentTime.id}
-                    className={`sm:px-[20px] sm:py-[17px] px-[18px] py-[13px] cursor-pointer flex justify-between items-center gap-5 rounded-[14px] border-2 sm:w-[530px] w-full ${selectedDailySpentTime === dailySpentTime.id
+                    className={`sm:px-[20px] sm:py-[17px] px-[18px] py-[13px] cursor-pointer flex justify-between items-center gap-5 rounded-[14px] border-2 sm:w-[530px] w-full ${spendTime === dailySpentTime.time
                       ? "border-sky-300 bg-sky-100"
                       : "border-gray-200 hover:bg-gray-100"
                       }`}
-                    onClick={() => handleContinue(dailySpentTime.id)}
+                    onClick={() => handleContinue(dailySpentTime.time)}
                   >
                     <h1
-                      className={`${selectedDailySpentTime === dailySpentTime.id
+                      className={`${spendTime === dailySpentTime.time
                         ? "text-sky-500"
                         : "text-gray-700"
                         } text-[17px]  font-bold`}
@@ -905,7 +908,7 @@ const Page = () => {
                       {dailySpentTime.time} min / day
                     </h1>
                     <h1
-                      className={`${selectedDailySpentTime === dailySpentTime.id
+                      className={`${spendTime === dailySpentTime.time
                         ? "text-sky-500"
                         : "text-gray-600"
                         } text-lg  font-mediumn`}
@@ -1067,20 +1070,21 @@ const Page = () => {
             <button
               className={`${loadingContinue === true
                 ? "bg-gray-700 tranistion ease-in-out duration-300 borderGreen text-white cursor-not-allowed"
-                : (continuePage === 1 && selectedLanguage === null) ||
-                  (continuePage === 2 && selectedCompany === null) ||
-                  (continuePage === 3 && selectedNetwrok === null) ||
-                  (continuePage === 4 && selectedHear === null) ||
-                  (continuePage === 6 && selectedDailySpentTime === null)
+                : (continuePage === 1 && learnLanguage === null) ||
+                  (continuePage === 2 && nativeLanguage === null) ||
+                  (continuePage === 3 && languageKnow === null) ||
+                  (continuePage === 4 && whyLearnLanguage === null) ||
+                  (continuePage === 6 && spendTime === null) ||
+                  (continuePage === 7 && progressWidth < 99)
                   ? "bg-gray-200 tranistion ease-in-out duration-300 text-gray-400 cursor-not-allowed"
                   : "bg-gray-700 tranistion ease-in-out duration-300 borderGreen hover:opacity-70 text-white"
                 } text-center text-[15px] rounded-[16px] h-[50px] sm:h-[54px] flex justify-center items-center w-full sm:w-44 font-bold`}
               onClick={(e) => {
                 if (
-                  (continuePage === 1 && selectedLanguage === null) ||
-                  (continuePage === 2 && selectedCompany === null) ||
-                  (continuePage === 3 && selectedNetwrok === null) ||
-                  (continuePage === 4 && selectedHear === null)
+                  (continuePage === 1 && learnLanguage === null) ||
+                  (continuePage === 2 && nativeLanguage === null) ||
+                  (continuePage === 3 && languageKnow === null) ||
+                  (continuePage === 4 && whyLearnLanguage === null)
 
                 ) {
                 } else {
@@ -1103,9 +1107,15 @@ const Page = () => {
                   }
                   if (continuePage === 7) {
                     setLoadingContinue(true);
-
+                    localStorage.setItem('welcomeInfomation', JSON.stringify({
+                      learnLanguage: learnLanguage,
+                      nativeLanguage: nativeLanguage,
+                      languageKnow: languageKnow,
+                      whyLearnLanguage: whyLearnLanguage,
+                      spendTime: spendTime,
+                    }))
                     setTimeout(() => {
-                      router.push("/dashboard");
+                      router.push("/register");
                     }, 2000);
 
                   } else {
@@ -1119,11 +1129,11 @@ const Page = () => {
               }}
               disabled={
                 loadingContinue === true ||
-                (continuePage === 1 && selectedLanguage === null) ||
-                (continuePage === 2 && selectedCompany === null) ||
-                (continuePage === 3 && selectedNetwrok === null) ||
-                (continuePage === 4 && selectedHear === null) ||
-                (continuePage === 6 && selectedDailySpentTime === null)
+                (continuePage === 1 && learnLanguage === null) ||
+                (continuePage === 2 && nativeLanguage === null) ||
+                (continuePage === 3 && languageKnow === null) ||
+                (continuePage === 4 && whyLearnLanguage === null) ||
+                (continuePage === 6 && spendTime === null)
               }
             >
               {loadingContinue === false ? (

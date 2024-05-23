@@ -6,33 +6,18 @@ import { useRouter } from 'next/navigation';
 const Page = () => {
 
   const router = useRouter();
-  const [dropdownVisible, setDropdownVisible] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedLanguage, setSelectedLanguage] = useState(1);
-  const dropdownRef = useRef(null);
+  const [welcomeInfomation, setWelcomeInfomation] = useState(null);
 
-  const handleSelectLanguage = (id) => {
-    setSelectedLanguage(id);
-    setDropdownVisible(false);
-  };
-
-  const handleInputChange = (e) => {
-    setSearchTerm(e.target.value.toLowerCase());
-  };
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setDropdownVisible(false);
-      }
-    };
+    // Retrieve user info from localStorage
+    const storedtWelcomeInfomation = localStorage.getItem('welcomeInfomation');
+    if (storedtWelcomeInfomation) {
+      setWelcomeInfomation(JSON.parse(storedtWelcomeInfomation));
+    }
+  }, []);
 
-    document.addEventListener('mousedown', handleClickOutside);
 
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [dropdownRef]);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -41,48 +26,6 @@ const Page = () => {
     }
   }, [router]);
 
-  const dropdownItems = [
-    { name: "English", id: 1 },
-    { name: "Hindi", id: 2 },
-    { name: "Urdu", id: 3 },
-    { name: "Spanish", id: 4 },
-    { name: "French", id: 5 },
-    { name: "Arabic", id: 6 },
-    { name: "Bengali", id: 7 },
-    { name: "Russian", id: 8 },
-    { name: "Portuguese", id: 9 },
-    { name: "German", id: 10 },
-    { name: "Japanese", id: 11 },
-    { name: "Chinese", id: 12 },
-    { name: "Korean", id: 13 },
-    { name: "Italian", id: 14 },
-    { name: "Dutch", id: 15 },
-    { name: "Turkish", id: 16 },
-    { name: "Swedish", id: 17 },
-    { name: "Polish", id: 18 },
-    { name: "Vietnamese", id: 19 },
-    { name: "Thai", id: 20 },
-    { name: "Greek", id: 21 },
-    { name: "Hebrew", id: 22 },
-    { name: "Czech", id: 23 },
-    { name: "Danish", id: 24 },
-    { name: "Finnish", id: 25 },
-    { name: "Hungarian", id: 26 },
-    { name: "Norwegian", id: 27 },
-    { name: "Romanian", id: 28 },
-    { name: "Indonesian", id: 29 },
-    { name: "Malay", id: 30 },
-    { name: "Filipino", id: 31 },
-    { name: "Slovak", id: 32 },
-    { name: "Maltese", id: 33 },
-    { name: "Icelandic", id: 34 },
-    { name: "Latvian", id: 35 },
-    { name: "Lithuanian", id: 36 },
-    { name: "Estonian", id: 37 },
-    { name: "Slovenian", id: 38 },
-    { name: "Croatian", id: 39 },
-    { name: "Serbian", id: 40 }
-  ];
 
   return (
     <div>
@@ -97,62 +40,24 @@ const Page = () => {
         </div>
       </header>
       <div className='my-8 sm:max-w-5xl sm:px-6 px-4 mx-auto'>
-        <h4 className='text-center text-sm'>Choose your target language</h4>
+        <h4 className='text-center text-sm'>Your target language</h4>
         <div className='flex justify-center mt-1'>
-          <div ref={dropdownRef} className={`mt-2 relative rounded-md shadow-lg sm:w-96 w-full ring-1 ring-black ring-opacity-5 space-y-2`}>
-            {/* Search input */}
-            {dropdownVisible === true ? (
-              <input
-                onChange={handleInputChange}
-                value={searchTerm}
-                onFocus={() => setDropdownVisible(true)} // Show dropdown when input is focused
-                className="block w-full px-4 py-2 h-10 placeholder:text-white rounded-md text-white bg-gray-700 focus:outline-none"
-                type="text"
-                placeholder="Search Language"
-                autoComplete="off"
-              />
-            ) : (
-              <div onClick={() => { setDropdownVisible(true); }} className="cursor-default flex items-center justify-between h-10 block w-full px-4 py-2 text-white bg-gray-700 rounded-md focus:outline-none">
-              <div className='flex items-center gap-3'>
-              <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-world" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
-                  <path d="M3.6 9h16.8" />
-                  <path d="M3.6 15h16.8" />
-                  <path d="M11.5 3a17 17 0 0 0 0 18" />
-                  <path d="M12.5 3a17 17 0 0 1 0 18" />
-                </svg>
-                {selectedLanguage ? dropdownItems.find(item => item.id === selectedLanguage)?.name || 'Search Language' : 'Search Language'}
-                </div>
-
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" className="w-[18px] h-[18px]">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                </svg>
-
-              </div>
-            )}
-            {/* Dropdown content goes here */}
-
-            {dropdownVisible && (
-              <div className='absolute h-64 bg-white shadow border rounded-lg overflow-y-scroll w-full z-[100]'>
-                <div className=''>
-                  {dropdownItems
-                    .filter((item) =>
-                      item.name.toLowerCase().includes(searchTerm.toLowerCase())
-                    )
-                    .map((item, index) => (
-                      <a
-                        key={index}
-                        onClick={() => handleSelectLanguage(item.id)}
-                        className={`${selectedLanguage === item.id ? 'bg-gray-200' : 'hover:bg-gray-200'} border-b block px-5 py-[10px] text-gray-700 cursor-pointer`}
-                      >
-                        {item.name}
-                      </a>
-                    ))}
+          <div className='mt-2 relative rounded-md shadow-lg sm:w-96 w-full ring-1 ring-black ring-opacity-5 space-y-2'>
+          
+              <div className="cursor-default flex items-center justify-between h-10 block w-full px-4 py-2 text-white bg-gray-700 rounded-md focus:outline-none">
+                <div className='flex items-center gap-3'>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-world" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                    <path d="M3.6 9h16.8" />
+                    <path d="M3.6 15h16.8" />
+                    <path d="M11.5 3a17 17 0 0 0 0 18" />
+                    <path d="M12.5 3a17 17 0 0 1 0 18" />
+                  </svg>
+                  {welcomeInfomation?.learnLanguage}
                 </div>
               </div>
-            )}
-
+        
           </div>
         </div>
 

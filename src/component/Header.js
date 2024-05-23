@@ -63,7 +63,7 @@ const Header = () => {
           <div className='hidden sm:block'>
             <div className='flex gap-5'>
               <button className='flex items-end gap-2 text-gray-700 duration-500 transition ease-in-out hover:opacity-70 font-semibold' onClick={() => { router.push('/login') }}>Login</button>
-              <button className='flex items-end gap-2 text-gray-700 duration-500 transition ease-in-out hover:opacity-70 font-semibold' onClick={() => { router.push('/register') }}>Signup</button>
+              <button className='flex items-end gap-2 text-gray-700 duration-500 transition ease-in-out hover:opacity-70 font-semibold' onClick={() => { router.push('/welcome') }}>Signup</button>
               <button onMouseEnter={handleMouseHover} className='flex items-end gap-2 text-gray-700 duration-500 transition ease-in-out hover:opacity-70 font-semibold'>
                 <span>
                   Language: {languageData.label}

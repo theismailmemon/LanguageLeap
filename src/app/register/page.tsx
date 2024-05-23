@@ -71,7 +71,13 @@ const register = () => {
   }
   
   
-  
+  useEffect(() => { 
+    const welcomeInfomation = localStorage.getItem('welcomeInfomation');
+    if (welcomeInfomation) {
+      router.push('/welcome');
+    }
+  }, [router]);
+
   useEffect(() => {
 
     const token = localStorage.getItem('token');
@@ -120,7 +126,7 @@ const register = () => {
             toast.success("Registration successful", {
               autoClose: 1500, // Set notification close time to 2 seconds
               onClose: () => {
-                router.push('/welcome');
+                router.push('/dashboard');
               }
             });
           })

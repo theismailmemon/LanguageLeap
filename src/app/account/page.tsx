@@ -7,8 +7,18 @@ import { signOut } from "firebase/auth";
 import { useRouter } from 'next/navigation';
 const page = () => {
     const router = useRouter();
-
     const [userInfo, setUserInfo] = useState(null);
+    const [welcomeInfomation, setWelcomeInfomation] = useState(null);
+
+
+    useEffect(() => {
+        // Retrieve user info from localStorage
+        const storedtWelcomeInfomation = localStorage.getItem('welcomeInfomation');
+        if (storedtWelcomeInfomation) {
+          setWelcomeInfomation(JSON.parse(storedtWelcomeInfomation));
+        }
+      }, []);
+
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (!token) {
@@ -59,8 +69,17 @@ const page = () => {
                         </h1>
                         {/* <h4 className='pt-8'>Joined April 2024</h4> */}
                         <div className='flex items-center gap-4 mt-5'>
-                            <span><img src="https://admin.talkpal.ai/uploads/2023/09/spanish.png" alt="" className='h-10 w-10' /></span>
-                            <span className='bg-white rounded-full px-3 py-[2px] text-gray-500'>Spanish</span>
+                            <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-world" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                    <path d="M3.6 9h16.8" />
+                    <path d="M3.6 15h16.8" />
+                    <path d="M11.5 3a17 17 0 0 0 0 18" />
+                    <path d="M12.5 3a17 17 0 0 1 0 18" />
+                  </svg>
+                  </span>
+                            <span className='bg-white rounded-full px-3 py-[2px] text-gray-500'>{welcomeInfomation?.learnLanguage}</span>
                         </div>
                     </div>
                     <div className='sm:block hidden'>
